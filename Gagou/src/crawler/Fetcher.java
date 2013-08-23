@@ -14,12 +14,12 @@ public class Fetcher {
 	 */
 	public Fetcher(String url) throws Exception {
 		
-		//TODO
+		
 		
 		if ( verificarURL(url) ) {
 			//url é válida
 			
-			
+			//TODO : como continuar?
 		}
 	}
 
