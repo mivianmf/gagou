@@ -11,7 +11,10 @@ import java.net.URLConnection;
  */
 
 public class Main {
+
+	
 	public static void main (String [ ] args){
+/*	
 		try{
 			//URL a ser colhida
 			String urlString = "http://www.guj.com.br";
@@ -38,7 +41,8 @@ public class Main {
 			StringBuffer newData = new StringBuffer(10000);  
 			String s = "";  
 			while (null != ((s = br.readLine()))) {  
-			    newData.append(s);  
+			    newData.append(s);
+			    newData.append("/n");
 			}  
 			br.close();
 			
@@ -53,6 +57,9 @@ public class Main {
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage( ));
-		}		  		  
+		}
+		*/		  		  
+
+		
 	}  
 }

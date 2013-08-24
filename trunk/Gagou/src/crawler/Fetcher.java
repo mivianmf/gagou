@@ -1,5 +1,7 @@
 package crawler;
 
+import java.net.InetAddress;
+
 
 /** 1 - Verificar se a URL é válida
  *  2 - Resolver DNS
@@ -8,19 +10,17 @@ package crawler;
  *  5 - armazenar o documento */
 public class Fetcher {
 	
+	
+	private int id;
+	
+	
 	/** Construtor.
-	 * @param url : URL recebida
+	 * @param id: Id do Fetcher
 	 * @throws Exception 
 	 */
-	public Fetcher(String url) throws Exception {
+	public Fetcher(int id) throws Exception {
 		
-		
-		
-		if ( verificarURL(url) ) {
-			//url é válida
-			
-			//TODO : como continuar?
-		}
+		this.id = id;		
 	}
 
 	
@@ -41,4 +41,34 @@ public class Fetcher {
 		}
 	}
 
+	public void fetch (String url) throws Exception {
+		
+		if ( verificarURL(url) ) {
+			//url é válida
+			
+			
+			//Resolve DNS
+			InetAddress inet = InetAddress.getByName(formatarURL(url));
+		    String ip = inet.getHostAddress();
+			
+			//TODO : como continuar?
+		}
+	}
+	
+	public String formatarURL(String url){
+		
+		String urlFormatada;
+		
+		//  serviço: provedor:porta   caminho
+		
+		String [] aux = url.split("/");
+		String [] aux2 = aux[2].split(":");
+		
+		urlFormatada = aux2[0];
+		
+		return urlFormatada;
+		
+		
+	}
+	
 }
