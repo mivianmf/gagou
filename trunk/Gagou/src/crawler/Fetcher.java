@@ -1,16 +1,16 @@
 package crawler;
 
-import java.net.InetAddress;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 
 
-/** 1 - Verificar se a URL é válida
- *  2 - Resolver DNS
- *  3 - Resolver Robots.txt
- *  4 - http request response
- *  5 - armazenar o documento */
+/** Pega URL e salva a página html correspondente em uma String (retornada). */
 public class Fetcher {
 	
 	
+	/** Id do Fetcher. */
 	private int id;
 	
 	
@@ -24,51 +24,49 @@ public class Fetcher {
 	}
 
 	
-	/** Verifica se a url recebida é válida (se segue o padrão -> serviço://provedor:porta/caminho)
-	 * @param url : URL recebida
-	 * @return TRUE: se URL válida
-	 * @throws Exception : caso URL esteja fora de formato
-	 */
-	private boolean verificarURL(String url) throws Exception {
-		
-		if (url.matches("^(http(s)?://\\w+(\\.\\w+)*\\.\\w+(:\\d{1,4})?(/\\w+(/\\w+)*)?)$")) {
-			// http[s]://w+.w+(.w+)*[:dddd][/w+(/w+)*]
-			
-			return true;
-		}
-		else {
-			throw new Exception("URl fora de formato.");
-		}
-	}
 
-	public void fetch (String url) throws Exception {
+	/** Obtém o conteúdo html da página e retorna o mesmo em uma String. */
+	public String fetch (String ip) throws Exception {
 		
-		if ( verificarURL(url) ) {
-			//url é válida
-			
-			
-			//Resolve DNS
-			InetAddress inet = InetAddress.getByName(formatarURL(url));
-		    String ip = inet.getHostAddress();
-			
-			//TODO : como continuar?
-		}
+		//nova url com o ip
+		URL url = new URL(ip);
+		
+		//abre a conexão
+		URLConnection connection = url.openConnection();
+		
+		//Só quero entrada de dados não quero enviar nada para o servidor
+		connection.setDoInput(true);
+		connection.setDoOutput(false);
+		
+		//Método da requisição e e-mail para contato
+		connection.setRequestProperty("Request-Method", "GET");
+		connection.setRequestProperty("From", "rigagou@gmail.com");
+		
+		//Conecta com a URL
+		connection.connect( );
+		
+		//------------------------------------------------------------------------- TODO: como saber se página é html? http response?
+		
+		
+		//------- pega o html e salva numa string, retorna string pro coletor
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+		
+		//Leio todo o código html
+		
+		StringBuffer pagina = new StringBuffer();  
+		
+		String s = "";  
+		
+		while ((s = br.readLine()) != null) {  
+			pagina.append(s);
+			pagina.append("\n");
+		}  
+		
+		br.close();
+		
+		
+		return pagina.toString();
+		
 	}
-	
-	public String formatarURL(String url){
-		
-		String urlFormatada;
-		
-		//  serviço: provedor:porta   caminho
-		
-		String [] aux = url.split("/");
-		String [] aux2 = aux[2].split(":");
-		
-		urlFormatada = aux2[0];
-		
-		return urlFormatada;
-		
-		
-	}
-	
 }
