@@ -28,14 +28,16 @@ public class Gagou {
 		
 		try {
 			
-			crawler = new Crawler(1);
+			crawler = new Crawler(2);
+			
+			crawler.crawl();
 			
 			
 			
 		} 
 		catch (Exception e) {
 			System.out.println("\n\nERRO: " + e.getMessage());
-//			e.printStackTrace();
+			e.printStackTrace();
 		}
 		finally {
 			
