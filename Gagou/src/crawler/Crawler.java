@@ -125,13 +125,7 @@ public class Crawler {
 			
 			
 			
-			String pagina = fetchers.get(fetcherId).fetch(ip); //mandar ip para um fetcher disponível
-			
-			//---------------------------- salvar página em uma arquivo dentro de arquivos > fetchedPages
-			BufferedWriter out = new BufferedWriter(new FileWriter("arquivos\\fetchedPages\\" + urlRemov + ".html"));
-			out.write(pagina);
-			out.flush();
-			out.close();
+			fetchers.get(fetcherId).fetch(ip, urlRemov); //mandar ip para um fetcher disponível
 			
 			
 			//-------------------------------------------------------- TODO: ver tempo do servidor pra não bloquear nosso ip

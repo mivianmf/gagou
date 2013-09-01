@@ -1,12 +1,14 @@
 package crawler;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
 
-/** Pega URL e salva a página html correspondente em uma String (retornada). */
+/** Pega URLs e salva as páginas html correspondentes em arquivo. */
 public class Fetcher {
 	
 	
@@ -25,8 +27,8 @@ public class Fetcher {
 
 	
 
-	/** Obtém o conteúdo html da página e retorna o mesmo em uma String. */
-	public String fetch (String ip) throws Exception {
+	/** Obtém o conteúdo html da página e grava em arquivo. */
+	public void fetch (String ip, String urlRemov) throws Exception {
 		
 		//nova url com o ip
 		URL url = new URL(ip);
@@ -48,25 +50,22 @@ public class Fetcher {
 		//------------------------------------------------------------------------- TODO: como saber se página é html? http response?
 		
 		
-		//------- pega o html e salva numa string, retorna string pro coletor
+		//---------------------------- salvar página em uma arquivo dentro de arquivos > fetchedPages
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+		BufferedWriter out = new BufferedWriter(new FileWriter("arquivos\\fetchedPages\\" + urlRemov + ".html"));
 		
-		//Leio todo o código html
-		
-		StringBuffer pagina = new StringBuffer();  
 		
 		String s = "";  
 		
 		while ((s = br.readLine()) != null) {  
-			pagina.append(s);
-			pagina.append("\n");
+			out.write(s);
+			out.write("\n");
 		}  
 		
 		br.close();
-		
-		
-		return pagina.toString();
+		out.flush();
+		out.close();
 		
 	}
 }
