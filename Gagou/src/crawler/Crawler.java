@@ -24,6 +24,10 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
 
+import crawlercommons.robots.BaseRobotRules;
+import crawlercommons.robots.BaseRobotsParser;
+import crawlercommons.robots.SimpleRobotRulesParser;
+
 /** Coletor. */
 /** 1 - Verificar se a URL é válida
  *  2 - Resolver DNS
@@ -87,11 +91,18 @@ public class Crawler {
 	public void crawl () throws Exception {
 		
 		int fetcherId = 0;
+		int i = 0;
 		
 		while (!urls.isEmpty()) { //enquanto existirem urls para serem visitadas
 			
-			String urlRemov = urls.remove(0); //remover primeira url da lista
+			if (i == urls.size()) {
+				throw new Exception("Contador ultrapassou tamanho da lista de urls, ela não está crescendo!");
+			}
+			
+			String urlRemov = urls.get(i++); //primeira url da lista
 			String ip = "";
+			
+			System.out.println("\nurl = " + urlRemov);
 			
 			//verificar se é válida
 			if (verificarURL(urlRemov) == 0) { //é um ip
@@ -108,24 +119,18 @@ public class Crawler {
 					
 					//descobrir ip e salvar no cache
 					
-					InetAddress inet = InetAddress.getByName(urlRemov);
+					InetAddress inet = InetAddress.getByName(urlRemov.substring(7));
 				    ip = inet.getHostAddress(); //ip correspondente à url removida da lista
 				    
 				    cache.put(urlRemov, ip); //adicionar no cache				
 				}
 			}
 			
-			
-			
-			//TODO: resolver robots.txt
-			
-			
-			
-			
-			
-			
+
+			System.out.println("ip = " + ip);
 			
 			fetchers.get(fetcherId).fetch(ip, urlRemov); //mandar ip para um fetcher disponível
+			Thread.sleep(3000);
 			
 			
 			//-------------------------------------------------------- TODO: ver tempo do servidor pra não bloquear nosso ip

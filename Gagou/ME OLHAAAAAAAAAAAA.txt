@@ -1,3 +1,10 @@
 colecar finally no main
 
 todo no fetcher
+
+oq acontece se robots nao existe?
+
+------------------------------------- meldeus, oq fazer com as regras do robots?
+
+quando tenta conectar usando ip tudo saça
+usando dominio parece funfar lindo '-'
