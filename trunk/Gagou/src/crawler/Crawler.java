@@ -23,6 +23,8 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
 
+import org.apache.commons.validator.routines.UrlValidator;
+
 import crawlercommons.robots.BaseRobotRules;
 import crawlercommons.robots.BaseRobotsParser;
 import crawlercommons.robots.SimpleRobotRulesParser;
@@ -243,7 +245,10 @@ public class Crawler {
 
 		} else {
 
-			if (url.matches("^(http(s)?://\\w+(\\.\\w+)*\\.\\w+(:\\d{1,4})?(/\\w+(/\\w+)*)?)$")) {
+			String [] schemes = {"gopher", "mailto", "news", "nntp", "telnet", "wais", "file", "prospero"};
+			UrlValidator validar = new UrlValidator(schemes);
+			
+			if (validar.isValid(url)) {
 
 				// http[s]://w+.w+(.w+)*[:dddd][/w+(/w+)*]
 
