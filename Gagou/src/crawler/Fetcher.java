@@ -11,6 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import crawlercommons.robots.BaseRobotRules;
 import crawlercommons.robots.BaseRobotsParser;
@@ -79,7 +80,7 @@ public class Fetcher {
 //		String linguagem = lista.get(0);
 		//&& linguagem.equals("pt")
 		
-		if (contentType.equals("text/html")) { //só olhar páginas em html e em português
+		if (contentType.startsWith("text/html")) { //só olhar páginas em html e em português
 			
 			System.out.println("entrei no if de ser html, feliz");
 			
@@ -95,7 +96,8 @@ public class Fetcher {
 			//---------------------------- salvar página em um arquivo dentro de arquivos > fetchedPages
 			
 			BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-			BufferedWriter out = new BufferedWriter(new FileWriter("arquivos\\fetchedPages\\" + urlRemov + ".html"));
+			
+			BufferedWriter out = new BufferedWriter(new FileWriter("arquivos\\fetchedPages\\" + formatarURL(urlRemov) + ".html"));
 
 			
 			String s = "";  
@@ -158,9 +160,10 @@ public class Fetcher {
 			
 			String s = "";  
 			
-			while ((s = br.readLine()) != null) {  
+			while (s != null) {  
 				out.write(s);
 				out.write("\n");
+				s = br.readLine();
 			}  
 			
 			br.close();
@@ -174,6 +177,8 @@ public class Fetcher {
 			
 			byte[] content = new byte[qtdBytes];
 			fis.read(content);
+			
+			
 			
 			
 			BaseRobotsParser robotsParser = new SimpleRobotRulesParser();
