@@ -12,6 +12,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
+
+
+
+import org.apache.commons.validator.Validator;
+import org.apache.commons.validator.routines.UrlValidator;
+
 import crawler.Crawler;
 
 /** Classe principal da máquina de recuperação de informação. */
@@ -24,8 +30,6 @@ public class Gagou {
 		//TODO
 		
 		Crawler crawler = null;
-		
-		
 		try {
 			
 			crawler = new Crawler(2);
