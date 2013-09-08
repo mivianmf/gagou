@@ -1,0 +1,481 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="es-us" xml:lang="es-us">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                        <title>Terra - Chat</title>
+                <meta name="title" content="Terra Chat" />
+                <meta name="keywords" content="" />
+                <meta name="description" content="" />
+        
+	<meta name="expires" content="never" />
+	<meta content="IE=7" http-equiv="X-UA-Compatible" />
+	<link rel="shortcut icon" type="image/x-icon" href="http://s1.trrsf.com/favicon.ico" />
+
+	<link rel="stylesheet" media="screen" type="text/css" href="http://s1.trrsf.com/atm/3/core/_css/core.css" />
+	<link rel="stylesheet" media="print" type="text/css" href="http://s1.trrsf.com/atm/3/core/_css/core-print.css" />
+	<link rel="stylesheet" type="text/css" href="http://s1.trrsf.com/atm/3/core/apps/menu/_css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="http://s2.trrsf.com/atm/3/core/apps/headerfooter/_css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="http://s2.trrsf.com/chat_client_stf/prod/home/_css/context.css" />
+
+			<!-- Métricas -->
+		<script type="text/javascript" language="javascript">
+		<!--//
+                var tgmKey = 'us.chat.home';
+                var terra_info_service = "Chat";
+                var terra_info_channel = "us.comunidad.chat";
+		var terra_info_channeldetail ="/";
+                var terra_info_type = "cap";
+                var terra_info_id = "home";
+                var terra_stats_idCrtfc = 26307;
+		//-->
+		</script>
+		<script type="text/javascript" charset="iso-8859-1" language="javascript" src="http://stf.terra.com/metrics/js/us/capa.js"></script>
+		<!-- Métricas -->
+        
+	<script type="text/javascript">         
+                var linkBase = "http://nuevochat.terra.com/";
+		var country = "terraus";
+        </script>
+
+	<script type="text/javascript" charset="utf-8" src="http://s1.trrsf.com/atm/3/core/_js/jquery.js"></script>
+	<script type="text/javascript" charset="utf-8" src="http://s1.trrsf.com/atm/3/core/_js/core.modMan.js"></script>
+			<script type="text/javascript" charset="utf-8" src="http://s1.trrsf.com/navbar/js/json_landing_31.js"></script>
+		<script type="text/javascript" charset="utf-8" src="http://s1.trrsf.com/atm/3/core/_js/jquery.checkbox.radiobutton.js"></script>
+	<script type="text/javascript" charset="utf-8" src="http://s1.trrsf.com/atm/3/core/apps/headerfooter/_js/modHeaderFooterStatic.js"></script>
+	<script type="text/javascript" charset="utf-8" src="http://s1.trrsf.com/atm/2/core/apps/menu/_js/menuStatic.js"></script>
+        <!-- TRRCHAT_API -->
+        <script type="text/javascript" src="http://s2.trrsf.com/chat_client_stf/prod/_js/chatClient_compressed.js"></script>
+        <!-- TRRCHAT_API -->
+
+
+</head>
+<body class="LNG_es LNG_es-US RGN_US">
+	<!-- ACCESSIBILITY //-->
+<ul class="lst-accessibility">
+	<li><a href="#menu" target="_parent">Ir al menu</a></li>
+	<li><a href="#trr-ctn-content" target="_parent">Ir al contenido</a></li>
+	<li><a href="#search" target="_parent">Ir al buscador</a></li>
+	<li><a href="#mod-footer" target="_parent">Ir a la pie de página</a></li>
+</ul>
+<!-- // ACCESSIBILITY //-->
+
+	<!-- SCTRUCTURE //-->
+	<div id="trr-ctn-general" class="trr-home">
+	
+	<div id="mod-header"></div>
+
+	        	
+	        <script type="text/javascript">
+                        modHeaderFooter({
+                                        pageLang:'es',
+                                        pageCountry:'US',
+                                        selector:'#mod-header',
+                                        params: {
+                                                idItemMenu: 'home',
+                                                format:'full',
+                                                selectorFooter:'#mod-footer'
+                                        }
+                        });
+
+                </script>
+        	
+	
+	<!-- BODY COMPOSITION //-->
+	<div id="trr-ctn-content" class="clearfix">
+			<!-- TOP //-->
+			<h1 class="ttl-page-header">
+				<span style="background-image:url(http://sdp.terra.com.br/image/klavika?ca=f&c=ph&t=chat);">Chat</span> 
+			</h1>
+
+			<div class="ctn-counter">
+				<dl>
+					<dt>número de salas abiertas</dt>
+					<dd class="lin-ver-solid"><span id="total"></span><strong>&nbsp;salas abiertas</strong></dd>
+				</dl>
+			</div>
+	
+		 <!-- MOD MENU // -->
+		  <div id="mod-menu">
+		<span class="navigation">
+			<ul class="left">
+															 <li class="item">
+                                                        <a href="http://chat.terra.com" target="_parent">Portada Chat</a>
+                                                </li>
+																				 <li class="item">
+                                                        <a href="http://nuevochat.terra.com " target="_parent">Salas y Amigos</a>
+                                                </li>
+																				 <li class="item">
+                                                        <a href="http://nuevochat.terra.com/home/us/footerHelp.html" target="_parent">Ayuda</a>
+                                                </li>
+																				<li class="item last">
+							<a href="http://nuevochat.terra.com/home/us/footerTermsOfUse.html" target="_parent">Condiciones de Uso</a>
+						</li>
+												</ul>
+		</span>	
+						
+		</div>
+		 
+		<!-- // MOD MENU // -->
+		  
+		<div class="col-main ctn-chat clearfix">
+			<!-- MOD SALAS EM DESTAQUE -->
+			<div class="ctn-zone ctn-room-highlights">
+				<h2 class="ttl-room-highlights">
+					<span class="spn-ttl-room-highlights">salas destacadas</span>
+				</h2>
+				<div class="bgr-grey">
+					<div class="ctn-border">
+						<ul class="lst-room-highlights">
+																						<div class="active" id="page_1">
+                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/categorias/amigos" target="_parent">
+                                                                        <div class="imageSprite18"></div>
+                                                                        <span class="spn-name-room">Amigos</span>
+                                                                </a>
+                                                        </li>
+ 
+																												                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/categorias/amor" target="_parent">
+                                                                        <div class="imageSprite3"></div>
+                                                                        <span class="spn-name-room">Amor</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/categorias/autos" target="_parent">
+                                                                        <div class="imageSprite2"></div>
+                                                                        <span class="spn-name-room">Autos</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/categorias/ciudad" target="_parent">
+                                                                        <div class="imageSprite12"></div>
+                                                                        <span class="spn-name-room">Mi Ciudad</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/categorias/deportes" target="_parent">
+                                                                        <div class="imageSprite16"></div>
+                                                                        <span class="spn-name-room">Deportes</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/categorias/entretenimiento" target="_parent">
+                                                                        <div class="imageSprite0"></div>
+                                                                        <span class="spn-name-room">Entretenimiento</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/categorias/glbt" target="_parent">
+                                                                        <div class="imageSprite5"></div>
+                                                                        <span class="spn-name-room">GLBT</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/categorias/paises" target="_parent">
+                                                                        <div class="imageSprite11"></div>
+                                                                        <span class="spn-name-room">Países</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/salas/futbol" target="_parent">
+                                                                        <div class="imageSprite6"></div>
+                                                                        <span class="spn-name-room">Fútbol</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/salas/telenovelas" target="_parent">
+                                                                        <div class="imageSprite1"></div>
+                                                                        <span class="spn-name-room">Telenovelas</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/salas/playeros" target="_parent">
+                                                                        <div class="imageSprite2"></div>
+                                                                        <span class="spn-name-room">Playeros</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/salas/viajeros" target="_parent">
+                                                                        <div class="imageSprite15"></div>
+                                                                        <span class="spn-name-room">Viajeros</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/salas/espana" target="_parent">
+                                                                        <div class="imageSprite12"></div>
+                                                                        <span class="spn-name-room">España</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/salas/brasil" target="_parent">
+                                                                        <div class="imageSprite14"></div>
+                                                                        <span class="spn-name-room">Brasil</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/categorias/ecuador" target="_parent">
+                                                                        <div class="imageSprite12"></div>
+                                                                        <span class="spn-name-room">Ecuador</span>
+                                                                </a>
+                                                        </li>
+                                                        																					                                                        <li>
+                                                                <a class="lnk-room-highlight" href="http://nuevochat.terra.com/categorias/venezuela" target="_parent">
+                                                                        <div class="imageSprite12"></div>
+                                                                        <span class="spn-name-room">Venezuela</span>
+                                                                </a>
+                                                        </li>
+                                                        															</div>
+                                                        													</ul>
+					</div>
+					<div id="ctn-room-pagination-fields" class="ctn-room-highlights-pagination">
+                                        	<p id="pagination-value"></p>
+                                                <a id="btn-prev" class="p-off" href="javascript:void(0);" onclick="chatInt.paginatePrev()"><em><<</em></a>
+                                                <a id="btn-next" class="img-next" href="javascript:void(0);" onclick="chatInt.paginateNext()"><em>>></em></a>
+                                        </div>
+				</div>
+			</div>
+			<!-- MOD SALAS EM DESTAQUE //-->
+		
+		<div class="lin-hor-dotted"><hr /></div>
+			
+			<!-- MOD SALAS MAIS VISITADAS -->
+			<div class="ctn-most-visited bgr-col-2">
+				<div class="col-wide">
+					<h2 class="ttl-most-visited">
+						<span class="spn-ttl-most-visited">Salas más Visitadas</span>
+					</h2>
+					<div class="tab-content">
+						<table>
+							<thead>
+								<tr>
+																	<th>Entretenimiento</th>
+																	<th>Amor</th>
+																	<th>Deportes</th>
+																</tr>
+							</thead>
+							<tbody>	
+								<tr>	
+																										<td>
+										<a href="http://nuevochat.terra.com/salas/telenovelas" class="lnk-img-tbl imageSprite1" target="_parent"></a>
+										<div class="room-data">
+																					<h5 class="ttl-name-room"><a href="http://nuevochat.terra.com/salas/telenovelas" target="_parent">Telenovelas</a></h5>
+											<span class="spn-room-info"><strong class="str-hidden">1</strong>sala</span>
+											
+										</div>
+									</td>
+										
+																										<td>
+										<a href="http://nuevochat.terra.com/salas/buscapareja" class="lnk-img-tbl imageSprite3" target="_parent"></a>
+										<div class="room-data">
+																					<h5 class="ttl-name-room"><a href="http://nuevochat.terra.com/salas/buscapareja" target="_parent">Busca Pareja</a></h5>
+											<span class="spn-room-info"><strong class="str-hidden">1</strong>sala</span>
+											
+										</div>
+									</td>
+										
+																										<td>
+										<a href="http://nuevochat.terra.com/salas/futbol" class="lnk-img-tbl imageSprite6" target="_parent"></a>
+										<div class="room-data">
+																					<h5 class="ttl-name-room"><a href="http://nuevochat.terra.com/salas/futbol" target="_parent">Fútbol</a></h5>
+											<span class="spn-room-info"><strong class="str-hidden">1</strong>sala</span>
+											
+										</div>
+									</td>
+										
+																</tr>
+								<tr>    
+                                																		<td> 
+										<a href="http://nuevochat.terra.com/salas/musica" class="lnk-img-tbl imageSprite10" target="_parent"></a>
+										<div class="room-data">
+																					<h5 class="ttl-name-room"><a href="http://nuevochat.terra.com/salas/musica" target="_parent">Música</a></h5>
+											<span class="spn-room-info"><strong class="str-hidden">1</strong>sala</span>
+																				</div>
+									</td>
+																																			<td> 
+										<a href="http://nuevochat.terra.com/salas/20a30amor" class="lnk-img-tbl imageSprite18" target="_parent"></a>
+										<div class="room-data">
+																					<h5 class="ttl-name-room"><a href="http://nuevochat.terra.com/salas/20a30amor" target="_parent">20 a 30 años</a></h5>
+											<span class="spn-room-info"><strong class="str-hidden">1</strong>sala</span>
+																				</div>
+									</td>
+																																			<td> 
+										<a href="http://nuevochat.terra.com/salas/beisbol" class="lnk-img-tbl imageSprite11" target="_parent"></a>
+										<div class="room-data">
+																					<h5 class="ttl-name-room"><a href="http://nuevochat.terra.com/salas/beisbol" target="_parent">Beisbol</a></h5>
+											<span class="spn-room-info"><strong class="str-hidden">1</strong>sala</span>
+																				</div>
+									</td>
+																									</tr>
+								<tr>    
+																																																																			</tr>
+							</tbody>
+						</table>
+							<div class="clear"></div>
+															<a href="http://nuevochat.terra.com/categorias/entretenimiento" class="lnk-more lnk-city-1" target="_parent">más salas <span>></span></a>
+                            								<a href="http://nuevochat.terra.com/categorias/amor" class="lnk-more lnk-city-2" target="_parent">más salas <span>></span></a>
+                            								<a href="http://nuevochat.terra.com/categorias/deportes" class="lnk-more lnk-city-3" target="_parent">más salas <span>></span></a>
+                            					</div>
+				</div>
+
+				<!-- MOD SALAS MAIS VISITADAS //-->
+			
+				<!-- MOD BUSCAR -->
+				<div class="col-skinny last">
+						<h2 class="ttl-search-chat">
+							<span class="spn-ttl-search-chat">Ir al buscador</span>
+						</h2>
+						<div class="ctn-search-chat">
+						<form id="form" action="index.php" method="post">
+							<input type="hidden" id="hiddenLinkScript" value="http://nuevochat.terra.com/"/>
+
+							<label for="buscar-amigo">busca amigo</label>
+							<input type="text" name="buscar-amigo" onfocus="$('#buscar-sala, #buscar-amigo').val('');$('#buscar-amigo').removeClass('error-msg');" maxlength="30" id="buscar-amigo" class="inp-search" />
+							<label for="buscar-sala">busca sala</label>
+							<input type="text" name="buscar-sala" onfocus="$('#buscar-amigo, #buscar-sala').val('');$('#buscar-sala').removeClass('error-msg');" maxlength="25" id="buscar-sala" class="inp-search" />
+							<a class="lnk-search" href="javascript:void(0);" onClick="chatInt.search();">buscar</a>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- MOD BUSCAR // -->
+			
+			<div class="lin-hor-dotted"><hr /></div>
+			
+			<!-- MOD AGENDA DE ENTREVISTAS -->
+			<div class="ctn-interviews-agenda ctn-captioned-image clearfix">
+				<h2 class="ttl-interviews-agenda">
+					<h2><span class="ttl-direct-subject">direto ao assunto</span></h2>
+				</h2>
+				<ul class="lst-interviews-agenda bgr-col-4">
+					 
+						     
+                                                   <li>
+                                                                <a rel="960" class="img" href="http://entretenimiento.terra.com/amazing/videos/?ICID=US_TerraTV_terrausa_PortadaChat_AmazingVideos" target="blank">
+                                                                        <img width="89" height="67" title="Videos de la web" alt="" src="http://p1.trrsf.com/image/get?w=89&h=67&src=http://p1.trrsf.com/image/get?w=89&h=67&src=http://sdp.terra.com/ThumBox/freew/cnt465597_h386_w480_16042013153640.jpg/89x67" />                                                                 </a>
+                                                                <div class="ctn-interview-text" >
+                                                                        <h6><a href="http://entretenimiento.terra.com/amazing/videos/?ICID=US_TerraTV_terrausa_PortadaChat_AmazingVideos" class="lnk-txt-interviews" target="blank">Videos de la web</
+a></h6>                                                                        <h3 class="txt-claim">Mira los mejores videos de la web en Terra TV</h3>
+                                                                        <a href="http://entretenimiento.terra.com/amazing/videos/?ICID=US_TerraTV_terrausa_PortadaChat_AmazingVideos" class="lnk-more" target="blank">ver más<span>></span></a>
+                                                                </div>                                                        </li>
+                                                					 
+						             
+                                           	   <li class="itm-right">
+                                                                <a rel="960" class="img" href="http://radio.terra.com/?ICID=US_TerraTV_terrausa_PortadaChat_Radio" target="blank">
+                                                                        <img width="89" height="67" title="Radio Terra" alt="" src="http://p1.trrsf.com/image/get?w=89&h=67&src=http://p2.trrsf.com/image/get?src=http%3A%2F%2Fimages.terra.com%2F2012%2F12%2F10%2Fsanz-fans.jpeg&o=cf&w=89&h=47" /></a>
+                                                                <div class="ctn-interview-text" > 
+                                                                <h6><a href="http://radio.terra.com/?ICID=US_TerraTV_terrausa_PortadaChat_Radio" class="lnk-txt-interviews" target="blank">Radio Terra</a></h6>                                               	           <h3 class="txt-claim">Miles de radios con los géneros más populares</h3>
+                                                                <a href="http://radio.terra.com/?ICID=US_TerraTV_terrausa_PortadaChat_Radio" class="lnk-more" target="blank">ver más<span>></span></a>
+                                                                </div>
+                                                        </li>
+															</ul>
+			</div>
+			<!-- MOD AGENDA DE ENTREVISTAS //-->
+			
+			<div class="lin-hor-dotted"><hr /></div>
+			
+			<div id="tgm-textlinks"></div>
+
+			<div class="ctn-menu-chat-rodape">
+				<ul class="lst-menu-rodape">
+				                                          <li class="itm-first"><a href="http://nuevochat.terra.com/home/us/footerHelp.html" target="_parent">Ayuda</a></li>
+                                        <li><a href="http://nuevochat.terra.com/home/us/footerTermsOfUse.html" target="_parent">Condiciones</a></li>
+                                        <li><a href="http://nuevochat.terra.com/home/us/footerTips.html" target="_parent">Consejos</a></li>
+                                        <li class="itm-last"><a href="mailto:chat@terra.com" target="_parent">Contáctanos</a></li>
+				  				</ul>
+			</div>
+		</div>
+
+		<div class="col-aside">
+			<!-- MOD DESTAQUES -->
+			<div class="mod-destaques">
+				<h2 class="ttl-destaques">
+						<span>Destacados</span>
+				</h2>
+				<ul class="lst-interviews-agenda ctn-captioned-image">
+										  					   <div>
+					    <li class="itm-top">
+                                                <a rel="960" class="img" href="http://deportes.terra.com/futbol/show-de-goles/videos/?ICID=US_TerraTV_terrausa_PortadaChat_ShowdeGoles" target="blank">
+                                                        <img width="89" height="67" title="Inés Sainz" alt="Inés Sainz" src="http://p1.trrsf.com/image/get?w=89&h=67&src=http://p1.trrsf.com/image/get?w=89&h=67&src=http://sdp.terra.com/ThumBox/freew/cnt459976_h386_w480_16042013150053.jpg/89x67" />
+                                                </a>
+                                                <h6><a href="http://deportes.terra.com/futbol/show-de-goles/videos/?ICID=US_TerraTV_terrausa_PortadaChat_ShowdeGoles" class="lnk-txt-interviews" target="blank">Show de Goles</a></h6>
+                                                <h3 class="txt-claim">Inés Sainz y la recta final de las ligas del mundo</h3>
+                                                <a href="http://deportes.terra.com/futbol/show-de-goles/videos/?ICID=US_TerraTV_terrausa_PortadaChat_ShowdeGoles" class="lnk-more" target="blank">ver más<span>></span></a>
+                                            </li>
+					   </div>
+					  										  					   <div>
+					    <li class="itm-top">
+                                                <a rel="960" class="img" href="http://entretenimiento.terra.com/cine/movies-with-maria/videos/?ICID=US_TerraTV_terrausa_PortadaChat_MoviesMaria" target="blank">
+                                                        <img width="89" height="67" title="Movies with Maria" alt="Movies with Maria" src="http://p1.trrsf.com/image/get?w=89&h=67&src=http://p1.trrsf.com/image/get?w=89&h=67&src=http://sdp.terra.com/ThumBox/freew/cnt460856_h386_w480_16042013130050.jpg/89x67" />
+                                                </a>
+                                                <h6><a href="http://entretenimiento.terra.com/cine/movies-with-maria/videos/?ICID=US_TerraTV_terrausa_PortadaChat_MoviesMaria" class="lnk-txt-interviews" target="blank">Movies with Maria</a></h6>
+                                                <h3 class="txt-claim">Meet Maria as she travels around the world to interview the biggest stars.</h3>
+                                                <a href="http://entretenimiento.terra.com/cine/movies-with-maria/videos/?ICID=US_TerraTV_terrausa_PortadaChat_MoviesMaria" class="lnk-more" target="blank">ver más<span>></span></a>
+                                            </li>
+					   </div>
+					  									</ul>
+				<a href="http://terratv.terra.com/?ICID=US_TerraTV_terrausa_PortadaChat" class="lnk-more lnk-interviews-files" target="blank">ver más<span>></span></a>
+				 
+			</div>
+			<!-- MOD DESTAQUES //-->				
+			
+			<div class="lin-hor-dotted"><hr /></div>
+			
+			<!--MOD PUBLICIDADE//-->
+
+			<div id="tgm-right" class="ctn-tgm ctn-tgm-right"></div>
+			<!--//MOD PUBLICIDADE//-->
+	
+			<div class="lin-hor-dotted"><hr /></div>					
+			
+			<!--MOD OFERTAS-->
+			<div id="tgm-ppi" class="ctn-tgm ctn-tgm-ppi"></div>					
+			<!--MOD OFERTAS//-->
+			
+			<div class="lin-hor-dotted"><hr /></div>	
+					</div>
+	</div>
+		<div id="mod-footer"><!-- --></div>
+		<!-- ADVERTISING // -->
+		<script type="text/javascript" charset="utf-8" src="http://s1.trrsf.com/tagman/js/tagman.js"></script>
+		<script type="text/javascript">modMan.tools.pubMan.load("default");</script>
+
+		<div id="ctn-tgm-top"><script type="text/javascript">tgm.ShowArea("top","site=" + site ,"zone=" + zone);</script></div>
+		
+		<div class="trr-ctn-advertising">
+			<div><script type="text/javascript">modMan.tools.pubMan.load("right");</script></div>
+			<div><script type="text/javascript">modMan.tools.pubMan.load("ppi");</script></div>
+			<div><script type="text/javascript" charset="utf-8">modMan.tools.pubMan.load("textlinks");</script></div>
+		</div>
+	</div>
+<!-- // SCTRUCTURE -->
+<script language="javascript">
+terra_stats_metrics();
+var listPaths = [''];
+</script>
+						
+<script type="text/javascript">
+	var chatInt = new TrrChat.ChatInterface({
+		templateManager: "/templates/pt_br/_tplManager.htm",
+                templateRooms: "/templates/pt_br/_tplRooms.htm",
+                destiny: "elemResult"
+        });
+
+        chatInt.preparePagination();								
+								
+        var completePath = country;
+        var list='';
+        for (i=0;i<listPaths.length;i++){
+        	list += country+";"+listPaths[i];
+                if(i != (listPaths.length-1)){
+                	list += ",";
+                }
+        }
+        completePath = completePath + "&categoriesPathArray=" + list;
+        chatInt.getTotalRooms({
+        	countryPath : completePath
+        });
+</script>
+
+</body>
+</html>

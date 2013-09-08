@@ -8,76 +8,69 @@
 package crawler;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.PriorityQueue;
 import java.util.TreeMap;
 
 import org.apache.commons.validator.routines.UrlValidator;
 
-import crawlercommons.robots.BaseRobotRules;
-import crawlercommons.robots.BaseRobotsParser;
-import crawlercommons.robots.SimpleRobotRulesParser;
-
-/** Coletor. */
-/**
- * 1 - Verificar se a URL é válida 2 - Resolver DNS 3 - Resolver Robots.txt 4 -
- * http request response (dentro do fetcher, no método fetch) 5 - armazenar o
- * documento
- */
+/** Coletor. <br/>
+ * 	1 - Verificar se a URL é válida <br/>
+ * 	2 - Resolver DNS<br/>
+ *  3 - Resolver Robots.txt<br/>
+ *  4 - http request response (dentro do fetcher, no método fetch)<br/>
+ *  5 - armazenar o documento */
 public class Crawler {
 
 	/** Número de fetchers do coletor */
 	private int numFetchers;
 
+	/** Lista de fetchers */
+	private List<Fetcher> fetchers;
+	
+	/** Limite de páginas a serem coletadas. */
+	private int limColetar;
+
 	/** Cache com os endereços */
 	public Map<String, String> cache;
 
-	/** Lista de fetchers */
-	private List<Fetcher> fetchers;
+	/** Lista de URLs, usada por todos os fetchers. */
+	protected static List<String> urls;
 
-	/** Lista de URLs semente */
-	private List<String> urls;
-
-	/**
-	 * Construtor. Lê o cache do arquivo de cache salvo em disco.
-	 * 
-	 * @param numFetchers
-	 *            : número de fetchers a serem criados.
-	 * @throws Exception
-	 */
-	public Crawler(int numFetchers) throws Exception {
+	
+	
+	
+	/** Construtor. Lê o cache do arquivo de cache salvo em disco.
+	 * @param numFetchers: número de fetchers a serem criados.
+	 * @throws Exception */
+	public Crawler(int numFetchers, int limCol) throws Exception {
 
 		this.numFetchers = numFetchers;
+		this.limColetar = limCol;
+		
 
-		ObjectInputStream in = new ObjectInputStream(new FileInputStream(
-				"cache.data"));
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream("cache.data"));
 		cache = (TreeMap<String, String>) in.readObject();
+		in.close();
+		
 
 		fetchers = new ArrayList<Fetcher>();
 		for (int i = 0; i < numFetchers; i++) {
 			fetchers.add(new Fetcher(i));
 		}
 
+		
 		urls = new ArrayList<String>();
 		lerSementes();
 	}
 
-	/**
-	 * Lê o arquivo de URLs semente e joga na lista urls.
-	 * 
-	 * @throws Exception
-	 */
+	/** Lê o arquivo de URLs semente e joga na lista urls.
+	 * @throws Exception */
 	private void lerSementes() throws Exception {
 
 		BufferedReader in = new BufferedReader(new FileReader("SEEDS.txt"));
@@ -89,63 +82,59 @@ public class Crawler {
 		in.close();
 	}
 
-	/**
-	 * Método que faz os passos do coletor.
-	 * 
-	 * @throws Exception
-	 */
+	/** Método que faz os passos do coletor.
+	 * @throws Exception */
 	public void crawl() throws Exception {
 
 		int fetcherId = 0;
-		int i = 0;
+		int i = 0; //andar pela lista de urls
+		int pagsColetadas = 0;
 
-		while (!urls.isEmpty()) { // enquanto existirem urls para serem
-									// visitadas
+		
+		while (!urls.isEmpty() && (pagsColetadas != limColetar)) { // enquanto existirem urls para serem visitadas
 
 			if (i == urls.size()) {
-				throw new Exception(
-						"Contador ultrapassou tamanho da lista de urls, ela não está crescendo!");
+				throw new Exception("Contador ultrapassou tamanho da lista de urls, ela não está crescendo!");
 			}
 
 			String urlRemov = urls.get(i++); // primeira url da lista
+//			System.out.println("\nUrl que tirei da lista: " + urlRemov);
+			
 			String ip = "";
 
-			System.out.println("\nurl = " + urlRemov);
-
+			
 			// verificar se é válida
 			int resultVerificação = verificarURL(urlRemov);
 
+			
 			if (resultVerificação != -1) {
 
 				if (resultVerificação == 0) { // é um ip
 
 					ip = formatarIP(urlRemov);
+					
 				} else { // é um nome
 
 					// precisa resolver dns
 
-					ip = cache.get(urlRemov);
+					ip = cache.get(formatarURL(urlRemov));
 
 					if (ip == null) { // não existe esse domínio no cache
 
 						// descobrir ip e salvar no cache
 
-						InetAddress inet = InetAddress.getByName(urlRemov
-								.substring(7));
-						ip = inet.getHostAddress(); // ip correspondente à url
-													// removida da lista
+						InetAddress inet = InetAddress.getByName(formatarURL(urlRemov));
+						ip = inet.getHostAddress(); // ip correspondente à url removida da lista
 
-						cache.put(urlRemov, ip); // adicionar no cache
+						cache.put(formatarURL(urlRemov), ip); // adicionar no cache
 					}
 				}
 
-				System.out.println("ip = " + ip);
-
-				fetchers.get(fetcherId).fetch(ip, urlRemov); // mandar ip para
-																// um
-																// fetcher
-																// disponível
-				Thread.sleep(3000);
+				System.out.println("\nFetching url: " + urlRemov);
+				fetchers.get(fetcherId).fetch(ip, urlRemov); // mandar ip para um fetcher disponível
+				pagsColetadas++;
+				System.out.println("Coletei " + pagsColetadas + " páginas");
+				Thread.sleep(500);
 
 				// --------------------------------------------------------
 				// TODO:
@@ -155,19 +144,12 @@ public class Crawler {
 				fetcherId++;
 				fetcherId %= numFetchers;
 			}
-
-			else {
-				// fazer rodar o prox ip?
-			}
 		}
 	}
 
-	/**
-	 * Formata a url em forma de ip recebida e retorna apenas o número ip.
-	 * 
+	/** Formata a url em forma de ip recebida e retorna apenas o número ip.
 	 * @param urlRemov
-	 * @return
-	 */
+	 * @return String com apenas o ip. */
 	private String formatarIP(String urlRemov) {
 
 		// TODO
@@ -176,7 +158,7 @@ public class Crawler {
 	}
 
 	/** Retorna apenas o domínio da url recebida. */
-	private String formatarURL(String url) {
+	public static String formatarURL(String url) {
 
 		String urlFormatada;
 
@@ -190,15 +172,11 @@ public class Crawler {
 		return urlFormatada;
 	}
 
-	/**
-	 * Verifica se a url recebida é um ip (4 números de no máximo 3 dígitos,
-	 * separados por .)
-	 * 
-	 * @param urlF
-	 *            : domínio
-	 * @return
-	 * @throws Exception
-	 */
+	/** Verifica se a url recebida é um ip (4 números de no máximo 3 dígitos, separados por .)
+	 * @param urlF: domínio
+	 * @return true: se sim<br/>
+	 * 			false: senão
+	 * @throws Exception */
 	private boolean eIP(String urlF) throws Exception {
 
 		if (urlF.matches("^(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})$")) {
@@ -207,14 +185,7 @@ public class Crawler {
 
 			for (String s : aux) {
 
-				if (!((Integer.parseInt(s) >= 0) && (Integer.parseInt(s) <= 255))) { // se
-																						// o
-																						// endereço
-																						// IP
-																						// está
-																						// fora
-																						// do
-																						// intervalo
+				if (!((Integer.parseInt(s) >= 0) && (Integer.parseInt(s) <= 255))) { // se o endereço IP está fora do intervalo
 					throw new Exception("Endereço IP fora do intervalo.");
 				}
 			}
@@ -225,47 +196,106 @@ public class Crawler {
 		return false;
 	}
 
-	/**
-	 * Verifica se a url recebida é válida (se segue o padrão ->
-	 * serviço://provedor:porta/caminho)
-	 * 
-	 * @param url
-	 *            : URL recebida
+	/** Verifica se a url recebida é válida (se segue o padrão -> serviço://provedor:porta/caminho)
+	 * @param url: URL recebida
 	 * @return 0: se URL é um ip<br />
-	 *         1: se URL é um nome
-	 *        -1: se URL não é contém .br
-	 * @throws Exception
-	 *             : caso URL esteja fora de formato
-	 */
+	 *         1: se URL é um nome<br/>
+	 *        -1: se URL não termina com .br ou se não é página em português
+	 * @throws Exception: caso URL esteja fora de formato */
 	private int verificarURL(String url) throws Exception {
 
-		if (this.formatarURL(url).endsWith(".br")) {
+		String [] schemes = {"http", "https", "gopher", "mailto", "news", "nntp", "telnet", "wais", "file", "prospero"};
+		UrlValidator validar = new UrlValidator(schemes);
+		
+		if (validar.isValid(url)) { //é válida
 
-			return -1;
+			// http[s]://w+.w+(.w+)*[:dddd][/w+(/w+)*]
 
-		} else {
-
-			String [] schemes = {"gopher", "mailto", "news", "nntp", "telnet", "wais", "file", "prospero"};
-			UrlValidator validar = new UrlValidator(schemes);
 			
-			if (validar.isValid(url)) {
-
-				// http[s]://w+.w+(.w+)*[:dddd][/w+(/w+)*]
-
+			if (formatarURL(url).endsWith(".br") || portugues(url)) { //termina com .br ou é português, pode salvar
+			   
 				if (eIP(formatarURL(url))) { // url é um ip
 					return 0;
-				} else { // url não é ip
-					return 1;
 				}
-			} else {
-				throw new Exception("URl fora de formato.");
+				else { // url não é ip
+					return 1;
+				}           
 			}
+			else { //não salvar na lista
+				return -1;
+			}
+			
+			
+//			if (!formatarURL(url).endsWith(".br") && !portugues(url)) { 
+//				
+//				//não termina com .br e não é português mesmo assim
+//				
+//				return -1;
+//			}
+//			
+//			
+//			if (eIP(formatarURL(url))) { // url é um ip
+//				return 0;
+//			} else { // url não é ip
+//				return 1;
+//			}
+		}
+		else {
+			throw new Exception("URL fora de formato: " + url + ".");
 		}
 	}
-	// crawler tem uma lista de fetchers - ok
-	// crawler tem uma lista de urls que vai ficar mandando (lida do arquivo de
-	// sementes) - ok
+	
 
+	/** Pega o header http da página e verifica se a língua é português.
+	 * @param url
+	 * @return true: se sim</br>
+	 * 			false: senão. */
+	private boolean portugues(String urlRecebida) {
+		
+//		//nova url com o ip
+//		URL url = new URL("http", ip, "/");
+//		
+//		//abre a conexão
+//		URLConnection connection = url.openConnection();
+//		
+//		//Só quero entrada de dados não quero enviar nada para o servidor
+//		connection.setDoInput(true);
+//		connection.setDoOutput(false);
+//		
+//		//Método da requisição e e-mail para contato
+//		connection.setRequestProperty("Request-Method", "GET");
+//		connection.setRequestProperty("From", "gagoupuc@gmail.com");
+//		
+//		//Conecta com a URL
+//		connection.connect( );
+//		
+//		//------------------------------------------------------------------------- TODO: como saber se página é html? http response?
+//
+//		
+//		//pegar http header
+//		Map<String, List<String>> httpHeader = connection.getHeaderFields();
+//
+//		
+//		List<String> lista = httpHeader.get("Content-Type");
+//		String contentType = lista.get(0); //content-type da página
+//		
+////				lista = httpHeader.get("Content-Language"); //linguagem
+////				String linguagem = lista.get(0);
+//		//&& linguagem.equals("pt")
+		
+		return false;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// quando crawler for chamar o fetcher (parte do dispatcher), ele vai
 	// verificar se url que está mandando ja existe no cache
 	// se sim, manda o ip pro fetcher

@@ -8,3 +8,14 @@ oq acontece se robots nao existe?
 
 quando tenta conectar usando ip tudo saça
 usando dominio parece funfar lindo '-'
+
+
+
+
+http e https sao validos - ok, estava no crawler
+
+
+sobre quando decidir se uma url que vai ser mandada pra o fetcher é válida ou nao.... como pegar http header sem antes saber o ip 
+	no método português? D=
+
+fetcher está chamando o parser.......
