@@ -1,0 +1,136 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="robots" content="noindex, nofollow">
+	<title>Ops... Climatempo</title>
+	<style type="text/css">
+		html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, input, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section { margin: 0; padding:0; }
+		body{ background: #fff; font: 14px/16px "Trebuchet MS", Arial, Helvetica, sans-serif; color: #666; }
+		a { font: 14px/16px "Trebuchet MS", Arial, Helvetica, sans-serif; color: #666; text-decoration: none; outline: none; cursor: pointer; }
+		a img{ border: none; text-decoration: none; outline: none; cursor: pointer; }
+		a:hover { outline:none; }
+		.master { width: 100%; }
+		.content { width: 990px; margin: 0 auto;}
+		.topo-rest { height: 180px; background-image: url(http://imagens.climatempo.com.br/site/imagens/bgtopo.jpg); background-color: #013766; }
+		.logo-error { float: left; margin-top: 70px;}
+		.desculpe { float: right; margin-top: 20px; padding: 110px 0 0 100px; width: 330px; height: 38px; background: url(http://imagens.climatempo.com.br/site/imagens/ops.png) no-repeat; font: bold 14px/16px "Trebuchet MS", Arial, Helvetica, sans-serif; color: #e4e4e4;}
+		.barra-rest { height: 40px; background-color: #013766; }
+		.cidades-rest { float: left; margin: 20px 0 10px 0; width: 980px; font: 22px/25px "Trebuchet MS", Arial, Helvetica, sans-serif; color: #174f82;}
+		.mais-rest { float: left; width: 190px; margin-right: 5px;}
+		.mais-rest li { list-style: none; clear: both; float: left;}
+		.mais-rest li span { float: left; margin-bottom: 10px; font: bold 18px/22px "Trebuchet MS", Arial, Helvetica, sans-serif; color: #174f82;}
+		.mais-rest li a { clear: both; float: left; margin: 2px 0; width: 170px; text-align: center; background: #fff; border: 1px solid #e4e4e4; padding: 9px; cursor: pointer; color: #174f82;}
+		.mais-rest li a:hover { background: #12527e; border: none; padding: 10px; color: #fff;}
+		.busca-rest { clear: both; float: left; margin: 20px 0 0 240px;}
+		.busca-rest label { float:  left; font: 22px/25px "Trebuchet MS", Arial, Helvetica, sans-serif; color: #174f82;}
+		.ipt-rest { clear: both; float: left; margin-top: 5px; padding: 5px 17px; border: 1px solid #f0f0f0; width: 322px; font: 18px/22px "Trebuchet MS", Arial, Helvetica, sans-serif; color: #666; outline: none;}
+		.btn-rest { float: left; margin-top: 5px; padding: 5px 25px; background-color: #013766; font: 18px/22px "Trebuchet MS", Arial, Helvetica, sans-serif; color: #fff; border: none; outline: none;}
+		.rodape  { clear: both; float: left; margin-top: 40px; height: 225px; background-color: #013766;}
+		.copyright{ height:32px; padding-top:20px; text-align:center; color:#666; font: bold 12px/12px Arial, Helvetica, sans-serif; float:left; background: url(http://imagens.climatempo.com.br/site/imagens/bg-copyright.jpg) repeat-x top; }
+	</style>
+	<script type="text/javascript" src="http://imagens.climatempo.com.br/site/js/jquery-1.6.4.min.js"></script>
+</head>
+<body>
+	<div class="master topo-rest">
+		<div class="content">
+			<a href="" title="Climatempo - Previs&atilde;o do Tempo | Meteorologia e Not&iacute;cias em Tempo Real"><img class="logo-error" src="http://imagens.climatempo.com.br/site/imagens/logo.png" alt="" /></a>
+			<p class="desculpe">Página não encontrada.</p>
+		</div>
+	</div>
+	<div class="master barra-rest"></div>
+	<div class="master">
+		<div class="content">
+
+			<form class="busca-rest" action="/busca/" name='buscaMenu' method='GET'>
+				<label>Tente buscar uma outra localidade:</label>
+				<input type="text" class="ipt-rest" id='BUSCA' name='BUSCA' value="Digite uma localidade" />
+				<input type="submit" class="btn-rest" value="Buscar" id='bt-buscar' name='bt-buscar' />
+			</form>
+
+			<h1 class="cidades-rest">Cidades mais acessadas:</h1>
+			<ul class="mais-rest">
+				<li><span>Região Sudeste</span></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/558/saopaulo-sp" title="">São Paulo - SP</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/321/riodejaneiro-rj" title="">Rio de Janeiro - RJ</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/107/belohorizonte-mg" title="">Belo Horizonte - MG</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/418/campinas-sp" title="">Campinas - SP</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/84/vitoria-es" title="">Vitória - ES</a></li>
+			</ul>
+			<ul class="mais-rest">
+				<li><span>Região Sul</span></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/271/curitiba-pr" title="">Curitiba - PR</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/363/portoalegre-rs" title="">Porto Alegre - RS</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/377/florianopolis-sc" title="">Florianópolis - SC</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/278/maringa-pr" title="">Maringá - PR</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/381/joinville-sc" title="">Joinville - SC</a></li>
+			</ul>
+			<ul class="mais-rest">
+				<li><span>Região Nordeste</span></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/56/salvador-ba" title="">Salvador - BA</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/8/maceio-al" title="">Maceió - AL</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/60/fortaleza-ce" title="">Fortaleza - CE</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/259/recife-pe" title="">Recife - PE</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/384/aracaju-se" title="">Aracajú - SE</a></li>
+			</ul>
+			<ul class="mais-rest">
+				<li><span>Região Centro-Oeste</span></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/61/brasilia-df" title="">Brasília - DF</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/88/goiania-go" title="">Goiânia - GO</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/212/campogrande-ms" title="">Campo Grande - MS</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/218/cuiaba-mt" title="">Cuiabá - MT</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/213/dourados-ms" title="">Dourados - MS</a></li>
+			</ul>
+			<ul class="mais-rest">
+				<li><span>Região Norte</span></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/6/riobranco-ac" title="">Rio Branco - AC</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/25/manaus-am" title="">Manaus - AM</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/232/belem-pa" title="">Belém - PA</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/343/portovelho-ro" title="">Porto Velho - RO</a></li>
+				<li><a href="http://www.climatempo.com.br/previsao-do-tempo/cidade/593/palmas-to" title="">Palmas - TO</a></li>
+			</ul>
+
+		</div>
+	</div>
+	<div class="master rodape"></div>
+	<p class="master copyright"> Copyright 2012 - Climatempo. Todos os direitos reservados. </p>
+
+	<script type="text/javascript">
+		$(function(){
+			$buscaSubMenu = $('#BUSCA');
+			$buscaSubMenu.focus(function(){
+				if($(this).val() == "Digite uma localidade"){
+					$(this).val("");
+				}
+			}).blur(function(){
+				if($(this).val() == ""){
+					$(this).val("Digite uma localidade");
+				}
+			});
+
+			$('form[name="buscaMenu"]').submit(function(event){
+				if($buscaSubMenu.val().length > 2 && $buscaSubMenu.val().indexOf('Digite uma localidade') < 0){
+					window.location = '/busca/' + escape($buscaSubMenu.val());
+				}
+				return false;
+				event.preventDefault();
+			});
+		});
+	</script>
+
+	<!--Google-->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1103845-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <!--Fim Google-->
+
+</body>
+</html>

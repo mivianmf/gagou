@@ -23,7 +23,7 @@ import crawler.Crawler;
 /** Classe principal da máquina de recuperação de informação. */
 public class Gagou {
 
-	/** 
+	/** Main.
 	 * @param args */
 	public static void main(String[] args) {
 
@@ -32,11 +32,11 @@ public class Gagou {
 		Crawler crawler = null;
 		try {
 			
-			crawler = new Crawler(2);
+			crawler = new Crawler(2, 20);
 			
 			crawler.crawl();
 			
-			
+			System.out.println("\n\nTerminei. =D");
 			
 		} 
 		catch (Exception e) {

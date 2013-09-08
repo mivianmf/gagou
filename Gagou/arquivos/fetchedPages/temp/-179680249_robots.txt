@@ -1,0 +1,9 @@
+
+User-agent: *
+Disallow: /redirect_prod.asp
+Disallow: /redirect_emp.asp
+Disallow: /redirect.asp
+Disallow: /redirect_prod
+Disallow: /redirect_emp
+Disallow: /redirect
+Disallow: /visualiza
