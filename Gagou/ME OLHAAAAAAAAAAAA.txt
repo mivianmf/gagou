@@ -19,3 +19,9 @@ sobre quando decidir se uma url que vai ser mandada pra o fetcher é válida ou na
 	no método português? D=
 
 fetcher está chamando o parser.......
+
+
+
+
+exceção de conexao
+e se nao tem robots pega TUTU

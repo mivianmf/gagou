@@ -1,0 +1,418 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br" class="fixed_body">
+		<head>
+									<title>Você buscou por "166.78.230.144" - R7.com </title>
+								<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta name="keywords" content="" />
+				<meta name="description" content="" />
+				<meta Name="robots" content="noindex,nofollow" />
+				<link rel="shortcut icon" href="http://s1.r7.com/favicon.ico" />
+				<link rel="stylesheet" type="text/css" href="http://s1.r7.com/r7/css/reset.css" />
+				<link rel="stylesheet" type="text/css" href="http://s1.r7.com/r7/css/screen.css" />
+				<link rel="stylesheet" type="text/css" href="http://s1.r7.com/r7/css/chamadas.css" />
+				<link rel="stylesheet" type="text/css" href="http://s1.r7.com/r7/css/interna.css" />
+				<link rel="stylesheet" type="text/css" href="http://s1.r7.com/r7/css/print.css" media="print" />
+				<link rel="stylesheet" type="text/css" href="/css/screen.css" />
+				<link rel="stylesheet" type="text/css" href="/css/jquery-ui-1.8.24.custom.css" />
+				<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="http://s1.r7.com/r7/css/screen-ie.css" /><![endif]-->
+				<link rel="alternate" type="application/rss+xml" href="rss.xml" />
+				<script src="/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+				<script src="http://s1.r7.com/r7/js/lib.js" type="text/javascript"></script>
+				<script type="text/javascript" src="/js/jquery-ui-1.8.24.custom.min.js"></script>
+				<script type="text/javascript" src="/js/jquery-ui-i18n.min.js"></script>
+				<script type="text/javascript" src="/js/jquery.mask.min.js"></script>
+				<script type="text/javascript" src="/js/latinise.js"></script>
+				<script type="text/javascript" src="/js/search.js"></script>
+				<script src="http://www.google.com/jsapi"></script>
+				<script type="text/javascript" charset="utf-8">
+					google.load('ads.search', '2');
+				</script>
+				<!--[if lt IE 7.]><script defer type="text/javascript" src="http://s1.r7.com/r7/js/pngfix.js"></script><![endif]-->
+				<!--[if gte IE 9]>
+				  <style type="text/css">
+					.botao_index .botao {
+					   filter: none;
+					}
+				  </style>
+				<![endif]-->
+			
+			<script>
+			(function (url) {
+			   var
+				  isSSL = document.location.protocol === 'https:',
+				  r7adUrl = (isSSL ? 'https:' : 'http:') + '//adv.r7.com/script?href=',
+				  pageUrl = (typeof url === 'undefined' ? document.location.href : url);
+			   document.write('<scr' + 'ipt src="' + r7adUrl + pageUrl + '"><\/scr' + 'ipt>');
+			}());
+			</script>
+		</head>
+		<body class="busca fixed_body">
+			<script type="text/javascript" charset="utf-8">
+				function getParameter(name, url) {
+				  name = name.replace(/[\[]/, '\\\[').replace(/[\]]/, '\\\]');
+				  var results = new RegExp('[\\?&]'+name+'=?([^&#]*)').exec(url || window.location.href);
+				  return results == null ? 0 : results[1];
+				}
+				var term = '166.78.230.144'; 
+				var pageOptions = {
+				'pubId' : 'r7-ads',
+				'query' : term,
+				'hl': 'pt',
+				'linkTarget': '_blank',
+				'rolloverLinkUnderline' : true,
+								 'adtest' :  'off', 				'adPage' : parseInt(getParameter('page', location.href)) + 1,
+				'siteLinks' : true,
+				'numRepeated' : 3
+				}
+				var adblock1 = {
+				'container' : 'adblock1',
+				'width' : '748px',
+				'lines' : 3,
+				'fontFamily' : 'trebuchet ms',
+				'fontSizeTitle' : '14px',
+				'fontSizeDescription' : '12px',
+				'fontSizeDomainLink' : '12px',
+				'colorTitleLink': '#0171BD',
+				'colorText': '#767676',
+				'colorDomainLink': '#0272ba',
+				'colorAdBorder' : '#FFFFFF',
+				'adBorderSelections': 'bottom',
+				'colorBackground':'#F4F9FD',
+				'minTop' : 3,
+				'adsLabel' : true,
+				'longerHeadlines' : true
+				};
+				var adblock2 = {
+				'container' : 'adblock2',
+				'number' : 4,
+				'width' : '751px',
+				'lines' : 3,
+				'fontFamily' : 'trebuchet ms',
+				'fontSizeTitle' : '14px',
+				'fontSizeDescription' : '12px',
+				'fontSizeDomainLink' : '12px',
+				'colorTitleLink': '#0171BD',
+				'colorText': '#767676',
+				'colorDomainLink': '#0272ba',
+				'colorAdBorder' : '#FFFFFF',
+				'adBorderSelections': 'bottom',
+				'colorBackground':'#F4F9FD',
+				'adsLabel' : true,
+				'longerHeadlines' : true
+				};
+				var adblock3 = {
+				'container' : 'adblock3',
+				'number' : 6,
+				'width' : '180px',
+				'lines' : 3,
+				'fontFamily' : 'trebuchet ms',
+				'fontSizeTitle' : '14px',
+				'fontSizeDescription' : '12px',
+				'fontSizeDomainLink' : '12px',
+				'colorTitleLink': '#0171BD',
+				'colorText': '#767676',
+				'colorDomainLink': '#0272ba',
+				'colorAdBorder' : '#FFFFFF',
+				'adBorderSelections': 'bottom',
+				'colorBackground':'#F4F9FD',
+				'adsLabel' : true,
+				'longerHeadlines' : true
+				};
+				if(google.ads && term){
+					new google.ads.search.Ads(pageOptions, adblock1, adblock2, adblock3);
+				}
+
+				$(function(){
+				Search({
+    				orderUrl : 'http://busca.r7.com/s?num=20&q=166.78.230.144&media=geral&hl=pt&filter=1',
+    				as_q : '',
+					date : '',
+					searchUrl : 'http://snippets.r7.com/snippet/507eab53cba42f1cc3000001',
+					promo : "",
+					closeButton : "close_button"
+				});
+        });
+      </script>
+			
+			<div class="fixed_container">
+<!-- R7 BAR PRODUCT -->
+<script id="r7-bar-product" src="http://barra.r7.com/header/bar-product/bar-product.js" charset="UTF-8">{'search':false,'logo':'http://barra.r7.com/header/bar-product/img/logo-home.gif','href':'http://r7.com','title':'Ir para o R7'}</script>
+<div id="r7-ad-sb" style="display:none"><script>r7barProduct.dumAd('Superbanner')</script></div>
+<div id="r7-gp1" style="display:none;"><g:plusone count="false" href="http://www.r7.com"></g:plusone></div>
+<script>r7barProduct.setAd();r7barProduct.setPlusOne();</script>
+<!-- /R7 BAR PRODUCT -->
+
+			<div class="site_busca" id="utils">
+				<div class="site_geral max_width background_fixed">
+					<div id="special-pub" style="display:none;margin-bottom:15px">
+						<script type="text/javascript">
+						r7ad.printGAds([750, 230], 'Boxdeofertasrossi').success(function () {
+						  document.getElementById('special-pub').style.display = 'block';
+						});
+						</script>
+					</div>
+					<form method="get" action="http://busca.r7.com/s" id="frm-search">
+						<input type="hidden" name="num" value="20" />
+						<input type="hidden" name="start" value="0" />
+						<input type="hidden" name="media" value="geral" />
+												<fieldset>
+							<legend>
+								Buscar no site
+							</legend>
+							<label for="palavra_chave">
+								O que você procura?
+							</label>
+							<div class="input_width_container">
+								<input maxlength="1000" type="text" name="q" id="palavra_chave" accesskey="4" value="166.78.230.144" />
+								<input type="submit" value="Buscar" class="botao" id="normal_search"/>
+							</div>
+							<div class="busca_avancada_container">
+								<img src="images/logo_google_custom_advanced_search.png" class="block"/>
+								<a href="#" id="show_search" class="link_floater"> Busca Avançada</a>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				
+				<div class="patrocinador_lateral" style="float:right;">
+					<div id="adblock3" style="position:absolute;right: 0; top: 10px; width:180px"></div>
+				</div>
+			</div>
+			<div class="advanced_search_container  hidden ">
+				<form method="get" action="http://busca.r7.com/s" id="advanced_search">
+					<input type="hidden" name="start" value="0" />
+					<input type="hidden" name="media" value="geral" />
+					<input type="hidden" name="sort" id="sort_parameter"/>
+					<input type="hidden" id="sort_temp_start"/>
+       
+					<input type="hidden" id="sort_temp_end"/>
+					<input type="hidden" id="sites" name="as_q"/>
+					<input type="hidden" id="query" name="q"/>
+					<input type="hidden" name="adv_search" value="true"/>
+					
+					
+					<div class="site_geral advanced_search">
+							<a class="close_button" href="#">fechar x</a>
+							<h3 class="advanced_search_title">Busca avançada</h3>
+							<dl class="periodo">
+								<dt class="advanced_search_definition_title">Período</dt>
+									<dd><input type="radio" name="as_qdr" value="d"   class="periodo_radio" id="hoje"/> <label for="hoje">Últimas 24 horas</label> </dd>
+									<dd><input type="radio" name="as_qdr" value="w1"  class="periodo_radio" id="semana"/> <label for="semana">Esta semana</label></dd>
+									<dd><input type="radio" name="as_qdr" value="m1"  checked="checked"  class="periodo_radio"id="mes"/> <label for="mes">Este mês</label></dd>
+									<dd><input type="radio" name="as_qdr" value="m6"  class="periodo_radio" id="seismeses"/> <label for="seismeses">Últimos 6 meses</label></dd>
+									<dd><input type="radio" name="as_qdr" value="y1"  class="periodo_radio" id="ano"/> <label for="ano">Último ano</label></dd>
+									<dd style="width: 575px;height: 100%;">
+										<div style="float:left;">
+											<input type="radio" name="as_qdr" id="data_especifica" class="periodo_radio" value="on"/> Período específico 
+										</div>
+										<div style="display: inline; float: left;">
+											<div class="calendar_container_left">
+													<label for="date_start">De </label><input id="date_start" class="periodo_inputs" disabled="disabled"/>
+											</div>
+											<div class="calendar_container_right">
+													<label for="date_end">Até </label><input id="date_end" class="periodo_inputs" disabled="disabled"/>
+											</div>
+										</div>
+									</dd>
+							</dl>
+							<br style="clear:both;"/>
+							<dl class="paginas">
+								<dt class="advanced_search_definition_title">Encontrar páginas com </dt>
+								<dd><label for="keyword">Todas essas palavras</label> <input id="keyword" value="166.78.230.144"/></dd>
+								<dd><label for="exactly">Essa frase exata</label> <input id="exactly" value=""/></dd>
+								<dd><label for="noword">Sem as palavras</label> <input id="noword" value=""/></dd>
+							</dl>
+								<br style="clear:both;"/>
+							<dl class="pagina_dominio">
+								<dt class="advanced_search_definition_title">Encontrar páginas no site ou domínio: </dt>
+								<dd><input id="as_qU" name="as_qU" value="" /></dd>
+							</dl>
+							<br style="clear:both;"/>
+							<dl class="local">
+								<dt class="advanced_search_definition_title">Local</dt>
+								<dd><input type="radio" name="as_occt" value="url"  id="page_url"/> <label for="page_url">No endereço da página</label></dd>
+								<dd><input type="radio" name="as_occt" value="title"  id="page_title"/> <label for="page_title">No título da página</label></dd>
+								<dd><input type="radio" name="as_occt" value="body"  id="page_body"/> <label for="page_body">No corpo da página</label></dd>
+								<dd><input type="radio" name="as_occt" value="any" checked="checked  id="page_any"/> <label for="page_any">Em qualquer lugar da página</label></dd>
+							</dl>
+							<br style="clear:both;"/>
+							<dl class="max_numero">
+								<dt class="advanced_search_definition_title">Número de resultados por página</dt>
+								<dd><input type="radio" name="num" value="10"  id="result_ten"/> <label for="result_ten">10</label></dd>
+								<dd><input type="radio" name="num" value="15"  id="result_fifteen"/> <label for="result_fifteen">15</label></dd>
+								<dd><input type="radio" name="num" value="20"  checked="checked"  id="result_twenty"/> <label for="result_twenty">20</label></dd>
+							</dl>
+							<br style="clear:both;"/>
+							<dl class="secoes">
+								<dt class="advanced_search_definition_title">Procurar em</dt>
+								<br style="clear:both;"/>
+								<dd>
+									<p>Todas as seções</p>
+									<select multiple="multiple" id="secoes"> 
+									</select>
+								</dd>
+								<dd>
+									<p>&nbsp;</p>
+								<br style="clear:both;"/>
+								<br style="clear:both;"/>
+								<br style="clear:both;"/>
+								<br style="clear:both;"/>
+									<button type="button" class="add" id="add"></button>
+									<button type="button" class="remove" id="remove"></button>
+								</dd>
+								<dd>
+									<p>Seções selecionadas</p>
+									<select multiple="multiple" id="secoes_selecionadas">
+									</select>
+								</dd>
+								<dd class="dicas">
+									<p>&nbsp;</p>
+									<p>1) Selecione na caixa 'Todas as seções' a opção desejada</p>
+									<p>2) Selecione no máximo três opções. </p>
+									<p>3) Clique na seta direcionada para a caixa 'Seções selecionadas'</p>
+									<p>4) Para desfazer a escolha selecione a opção em 'Seções selecionadas' e clique na seta direcionada para a esquerda</p>
+									<p></p>
+									<p></p>
+									<p><input type="submit" value="Buscar" class="botao advanced_search_search_button" id="adv_submit"/></p>
+								</dd>
+							</dl>
+							<br style="clear:both;"/>
+						</div>
+					</form>
+				</div>
+<script src="http://sc.r7.com/ikkijs/ikkijs.js"></script>
+<script>
+var ik = new IkkiJS('ik');
+ik.debugMode();
+ik.setSearchURL('http://busca.r7.com/suggest/SEARCH_VALUE.json?callback=ik.parseBySuggest');
+ik.init('palavra_chave','frm-search');
+ik.setHolderPosition('utils');
+</script>
+
+			<div class="site_centro none_padding">
+				<div class="site_geral">
+					<div class="conteudo_inteiro none_padding">
+						<a name="centro_conteudo"></a>
+						<div class="header_busca">
+							<div class="buscados_container">
+																
+																<p class="itens_mostrados_left">
+									Mostrando de <span>0</span>
+									a <span>0</span>
+									de <span>0</span>
+									resultados encontrados
+								</p>
+																
+							</div>
+						</div>
+						
+						<div class="filtros_busca">
+							<ul class="filtro_formato">
+								<li class="spacing"> Mostrar: </li>
+								<li class="padrao_filtro  selecionado ">
+									<a href="http://busca.r7.com/s?num=20&q=166.78.230.144&media=geral&hl=pt&filter=1" class="tudo_link" title="Exibir todos os resultados">Tudo</a>
+								</li>
+								<li class="video padrao_filtro  ">
+									<a href="http://busca.r7.com/s?num=20&q=166.78.230.144&media=videos&hl=pt&filter=1" title="Exibir os resultados em formato de Vídeo">Vídeo</a>
+								</li>
+								<li class="photo padrao_filtro ">
+									<a href="http://busca.r7.com/s?num=20&q=166.78.230.144&media=imagens&hl=pt&filter=1" title="Exibir os resultados em formato de Foto">Foto</a>
+								</li>
+								<li class="texto padrao_filtro ">
+									<a href="http://busca.r7.com/s?num=20&q=166.78.230.144&media=texto&hl=pt&filter=1" title="Exibir os resultados em formato de Texto">Texto</a>
+								</li>
+								<li class="colunista padrao_filtro ">
+									<a href="http://busca.r7.com/s?num=20&q=166.78.230.144&media=colunistas&hl=pt&filter=1" title="Exibir os resultados dos colunistas">Colunistas</a>
+								</li>
+								<li class="order">
+									Ordernar por : <select id="order">
+										<option value='sort=date' >Data</option>
+										<option value=""  selected="selected" >Relevância</option>
+									</select>
+								</li>
+							</ul>
+						</div>
+						
+						<div id="resultados">
+							
+							<div class="links_patrocinados"></div>
+							<div id="adblock1" style="margin: 0"></div>
+							
+							<div id="resultados-2" style="position:relative">
+								<div class="google_custom_search">
+									<img src="images/logo_google_custom_search.png" class="block">
+								</div>
+								<div class="patrocinador_lateral" style="float:right;">
+									<div id="adblock3" style="position:absolute;right:0;"></div>
+								</div>	
+								
+								<ul class="resultado_busca">
+								  								  <div class="index_search_container ">
+										<div class="error_container">
+											<div class="error_explanation">
+												<a name="centro_conteudo"></a>
+												<div class="links_patrocinados"></div>
+												<p class="error_header">Sua busca não encontrou nenhum resultado. </p>
+												<p class="error_message">
+													Tente novamente utilizando outros termos. 
+												</p>
+												<p class="no_result_title">Você pode melhorar sua busca:</p>
+												<p class="no_result_simple_message"><span class="detached">1.</span> Verifique se os termos foram digitados corretamente</p>
+												<p class="no_result_simple_message"><span class="detached">2.</span> Refaça a busca com sinônimos</p>
+												<p class="no_result_simple_message"><span class="detached">3.</span> Refaça a busca com palavras-chave genéricas</p>
+											</div>
+										</div>
+									</div>
+								  								</ul>
+							</div>
+
+              <div id="adblock2" style="margin: 0"></div>
+             
+              
+						</div>
+          </div>
+        </div>
+		    </div>
+      <!-- R7 FOOTER PORTAL -->
+<script id="r7-footer-portal" src="http://barra.r7.com/footer/footer-portal/footer-portal.js" charset="UTF-8">{showPane:false}</script>
+<!-- /R7 FOOTER PORTAL -->
+		
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript sr" + "c='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10631407-1");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+<!-- SiteCatalyst code version: H.23.2. Copyright 1996-2011 Adobe, Inc. All Rights Reserved More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="http://s1.r7.com/r7/js/omniture/loadpage_omn.1.2.js"></script>
+<script type="text/javascript">
+if(typeof(window.R7HashAudience) != 'undefined') { 
+  window.R7HashPath = 'http://adv.r7.com/audience.js?s=' + window.R7HashAudience;
+  document.write('<scr'+'ipt type="text/javascript" src="' + window.R7HashPath + '"><\/scr'+'ipt>')
+}
+</script>
+
+<script type="text/javascript">
+/* You may give each page an identifying name, server, and channel on the next lines. */
+if(typeof(s_attrs)!='undefined')for(var key in s_attrs)s[key]=s_attrs[key];
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript" type="text/javascript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script><noscript><img src="http://aunica.112.2o7.net/b/ss/unica-r7-dev/1/H.23.2--NS/0" height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+<img src="http://home.log.r7.com/home.gif" style="border:0px; display: none" />
+
+<!-- comment . -->
+<!-- End SiteCatalyst code version: H.23.2. -->
+</div>
+
+</body>
+</html>

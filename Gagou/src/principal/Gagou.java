@@ -7,10 +7,14 @@
 
 package principal;
 
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+
+
 
 
 
@@ -32,9 +36,14 @@ public class Gagou {
 		Crawler crawler = null;
 		try {
 			
-			crawler = new Crawler(2, 20);
+			crawler = new Crawler(2, 1000);
 			
 			crawler.crawl();
+			BufferedWriter outUrls = new BufferedWriter(new FileWriter("urlsColetadas.txt"));
+			for (String string : crawler.urls) {
+				outUrls.write(string+"\n");
+			}
+			outUrls.close();
 			
 			System.out.println("\n\nTerminei. =D");
 			
@@ -53,6 +62,13 @@ public class Gagou {
 				out.writeObject(crawler.cache);
 				out.flush();
 				out.close();
+				
+				BufferedWriter outUrls = new BufferedWriter(new FileWriter("urlsColetadas.txt"));
+				for (String string : crawler.urls) {
+					outUrls.write(string+"\n");
+				}
+				outUrls.close();
+				
 			} 
 			catch (Exception e) {
 				System.out.println("\n\nERRO: " + e.getMessage());

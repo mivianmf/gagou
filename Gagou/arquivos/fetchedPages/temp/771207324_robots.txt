@@ -1,0 +1,13 @@
+
+# robots.txt for http://www1.folha.com.br/
+# Contact webmaster@grupofolha.com.br if you have questions regarding this file
+
+User-agent: *
+Disallow: /folha/furniture/
+Disallow: /folha/virtual/
+Disallow: /virtual/
+Disallow: /folha/backend/
+
+User-agent: Googlebot-News
+Disallow: /
+Allow: /internacional/
