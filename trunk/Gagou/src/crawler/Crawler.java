@@ -40,7 +40,7 @@ public class Crawler {
 	public Map<String, String> cache;
 
 	/** Lista de URLs, usada por todos os fetchers. */
-	protected static List<String> urls;
+	public static List<String> urls;
 
 	
 	
@@ -131,8 +131,10 @@ public class Crawler {
 				}
 
 				System.out.println("\nFetching url: " + urlRemov);
-				fetchers.get(fetcherId).fetch(ip, urlRemov); // mandar ip para um fetcher disponível
-				pagsColetadas++;
+				if(fetchers.get(fetcherId).fetch(ip, urlRemov)); // mandar ip para um fetcher disponível
+				{
+					pagsColetadas++;
+				}
 				System.out.println("Coletei " + pagsColetadas + " páginas");
 				Thread.sleep(500);
 
@@ -169,7 +171,7 @@ public class Crawler {
 
 		urlFormatada = aux2[0];
 
-		return urlFormatada;
+		return urlFormatada.trim();
 	}
 
 	/** Verifica se a url recebida é um ip (4 números de no máximo 3 dígitos, separados por .)

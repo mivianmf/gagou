@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1000">
+    <title>Receita Federal do Brasil</title>
+
+    <link rel="stylesheet" href="tema/css/rfb.css"/>
+
+    <link rel="stylesheet" href="pagina-inicial/css/pagina-inicial.css">
+
+</head>
+<body class="home">
+
+        <div id="main" class="wrapper clearfix">
+            <div class="coluna-esquerda">
+                <div id="destaques" class="bloco">
+                    <div class="conteudo flexslider" >
+
+                    </div>
+                </div>
+                <div id="informacoes" class="bloco azul">
+                    <h2>
+                        Informa√ß√µes</h2>
+                    <div class="conteudo">
+                    </div>
+                </div>
+                <div id="fronteira-blindada" class="bloco">
+                    <h2>
+                        Fronteira Blindada</h2>
+                    <div class="conteudo">
+                    </div>
+                </div>
+				<div id="agenda-tributaria" class="bloco">
+					<h2>Agenda Tribut√°ria</h2>
+					<div class="conteudo">
+						<div id="agenda">
+							<div class="caixa-conteudo"></div>
+						</div>
+						<ul id="legenda">
+							<li id="fim-semana"><span></span>Finais de Semana</li>
+							<li id="dia-util"><span></span>Dias √öteis</li>
+							<li id="vencimento"><span></span>Vencimentos de Tributos</li>
+							<li id="corrente"><span></span>Dia Corrente</li>
+						</ul>
+					</div>
+				</div>
+                <div id="indices" class="bloco">
+                    <h2>
+                        √?ndices</h2>
+                    <div class="conteudo">
+
+                        <div id="selic">
+                        </div>
+                        <div id="tjlp">
+                        </div>
+                    </div>
+                </div>
+                <div id="tv-receita" class="bloco azul">
+                    <h2>TV Receita</h2>
+                    <div class="conteudo">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div id="portais-servicos" class="bloco">
+                    <h2>Portais de Servi√ßos</h2>
+                </div>
+            </div>
+            <div class="coluna-direita">
+                <div id="noticias" class="bloco">
+                    <h2>Not√≠cias</h2>
+                    <div class="conteudo">
+                    </div>
+                    <a href="/AutomaticoSRFsinot/noticia_ant.asp" title="Mais not√≠cias" class="ir sprite mais">Not√≠cias</a>
+                    <div class="clearfix">
+                    </div>
+                </div>
+                <div id="mais-acessados" class="bloco azul">
+                    <h2>Servi√ßos em Destaque</h2>
+                    <div class="conteudo">
+                        <a href="/aplicacoes/atbhe/tus" title="Mais Servi√ßos" class="ir sprite mais">Servi√ßos</a>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                <div id="downloads" class="bloco">
+                    <h2>Downloads</h2>                    
+                </div>
+                <div id="sitios-oficiais" class="bloco azul">
+                    <h2>S√≠tios Oficiais</h2>
+                </div>
+            </div>
+        </div>
+        <!-- #main -->
+
+        <div class="hidden mapa-sitio">
+            <a href="/mapa-sitio.html">Mapa do s√≠tio</a>
+        </div>
+
+    <!-- tema BEGIN -->
+    <script src="tema/require.js"></script>
+    <script>
+			// Vers„o n„o minimizada
+			//require({shim:{"jquery.rfb": {deps: ["tema/main"]}}}, ["require", "tema/main", "jquery.rfb"], function(){
+
+			// Vers„o "built-not-optmized"
+			//require(["require", "tema/main-built-not-optimized"], function(){
+
+			// Vers„o "built"
+			require(["require", "tema/main-built"], function(){
+				window.jQuery = window.$ = require("jquery.rfb");
+				console.log("document: tema/main callback - BEGIN (jQuery RFB v" + $.fn.jquery + ")");
+
+				require(['/pagina-inicial/config.js'], function(config){
+					var objConfig = config.configurar();
+
+					// Vers„o n„o minimizada
+					//require(objConfig,["/pagina-inicial/main.js"], function() {
+
+					// Vers„o minimizada
+					require(objConfig,["/pagina-inicial/main-built.js"], function() {
+
+					// Vers„o "built-not-optmized"
+					//require(objConfig,["/pagina-inicial/main-built-not-optimized.js"], function() {
+						console.log("document: pagina-inicial/main callback - OK");
+					}, function(err) {
+						console.log("document: pagina-inicial/main callback - ERRO: " + err);
+					});
+				});
+				console.log("document: tema/main callback - END");
+			}, function(err) {
+				console.log("document: tema/main callback - ERRO: " + err);
+			});    
+    </script>
+    <!-- tema END -->
+
+</body>
+</html>

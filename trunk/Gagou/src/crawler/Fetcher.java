@@ -37,7 +37,7 @@ public class Fetcher {
 	}
 
 	/** Obtém o conteúdo html da página e grava em arquivo. */
-	public void fetch (String ip, String urlRemov) throws Exception {
+	public boolean fetch (String ip, String urlRemov) throws Exception {
 		
 		//nova url com o ip
 		URL url = new URL("http", ip, "/");
@@ -98,8 +98,22 @@ public class Fetcher {
 					
 					Parser parser = new Parser();
 					parser.parse(urlRemov);
+					return true;
 				}
+				else
+				{
+					return false;
+				}
+				
 			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
 		}
 	}
 
