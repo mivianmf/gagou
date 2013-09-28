@@ -1,1 +1,11 @@
-http://www.estadao.com.br
+http://www.globo.com 
+http://www.terra.com.br 
+http://www.pucminas.br 
+http://www.uai.com.br 
+http://www.receita.fazenda.gov.br 
+http://www.ufmg.br 
+http://www.estadao.com.br 
+http://www.r7.com.br 
+http://www.abril.com.br 
+http://www.ig.com.br
+http://www.uol.com.br 

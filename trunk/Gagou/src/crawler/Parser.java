@@ -21,7 +21,7 @@ public class Parser {
 	 * @throws Exception */
 	public void parse(String url) throws Exception {
 
-		File in = new File("arquivos\\fetchedPages\\" + url.hashCode() + ".html");
+		File in = new File("arquivos\\fetchedPages\\" + removeBarra(url) + ".html");
 		Document doc = Jsoup.parse(in, null); //abrir o arquivo e fazer o parse nele
 		
 		
@@ -37,10 +37,23 @@ public class Parser {
 			if ( !novaURL.equals("") ) { //nova url não é vazia
 				
 //				System.out.println("Adicionando nova url na lista: " + novaURL);
-				Crawler.urls.add(novaURL);			
+				Crawler.urls.add(novaURL);	
+				// TODO - Transformar URL (colocar protocolo quando nao tiver)
 			}
         }
 		
+	}
+	
+	private String removeBarra(String urlRemov) {
+		StringBuffer sb = new StringBuffer();
+		
+		for (int i = 0; i < urlRemov.length(); i++) {
+			if((int)urlRemov.charAt(i) != 47 && (int)urlRemov.charAt(i) != 58){
+				sb.append(urlRemov.charAt(i));
+			}
+		}
+		
+		return sb.toString();
 	}
 	
 }

@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.ObjectInputStream;
 import java.net.InetAddress;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -42,6 +43,7 @@ public class Crawler {
 	/** Lista de URLs, usada por todos os fetchers. */
 	public static List<String> urls;
 
+	public Map<String, Long> timeStamp;
 	
 	
 	
@@ -67,6 +69,8 @@ public class Crawler {
 		
 		urls = new ArrayList<String>();
 		lerSementes();
+		
+		timeStamp = new HashMap<String, Long>();
 	}
 
 	/** Lê o arquivo de URLs semente e joga na lista urls.
@@ -131,12 +135,15 @@ public class Crawler {
 				}
 
 				System.out.println("\nFetching url: " + urlRemov);
-				if(fetchers.get(fetcherId).fetch(ip, urlRemov)); // mandar ip para um fetcher disponível
-				{
+								
+				if(fetchers.get(fetcherId).fetch(ip, urlRemov, timeStamp) == 0){
 					pagsColetadas++;
+					timeStamp.put(urlRemov, System.currentTimeMillis());
 				}
+				
+				
 				System.out.println("Coletei " + pagsColetadas + " páginas");
-				Thread.sleep(500);
+				Thread.sleep(200);
 
 				// --------------------------------------------------------
 				// TODO:
@@ -243,7 +250,7 @@ public class Crawler {
 //			}
 		}
 		else {
-			throw new Exception("URL fora de formato: " + url + ".");
+			return -1;
 		}
 	}
 	
