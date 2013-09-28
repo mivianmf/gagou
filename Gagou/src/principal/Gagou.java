@@ -31,7 +31,10 @@ public class Gagou {
 	 * @param args */
 	public static void main(String[] args) {
 
-		//TODO
+		//TODO armazenar melhor
+		//TODO meta dados
+		//TODO link relativo
+		//TODO Page Rank
 		
 		Crawler crawler = null;
 		try {

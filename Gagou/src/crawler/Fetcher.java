@@ -37,84 +37,108 @@ public class Fetcher {
 	}
 
 	/** Obtém o conteúdo html da página e grava em arquivo. */
-	public boolean fetch (String ip, String urlRemov) throws Exception {
+	public int fetch (String ip, String urlRemov, Map<String, Long> timeStamp) throws Exception {
 		
-		//nova url com o ip
-		URL url = new URL("http", ip, "/");
-		
-		//abre a conexão
-		URLConnection connection = url.openConnection();
-		
-		//Só quero entrada de dados não quero enviar nada para o servidor
-		connection.setDoInput(true);
-		connection.setDoOutput(false);
-		
-		//Método da requisição e e-mail para contato
-		connection.setRequestProperty("Request-Method", "GET");
-		connection.setRequestProperty("From", "gagoupuc@gmail.com");
-		
-		//Conecta com a URL
-		connection.connect( );
-		
-		//------------------------------------------------------------------------- TODO: como saber se página é html? http response?
-
-		
-		//pegar http header
-		Map<String, List<String>> httpHeader = connection.getHeaderFields();
-
-		
-		List<String> lista = httpHeader.get("Content-Type");
-		
-		
-		if (lista != null) { //deu certo pegar o http header
+		if((System.currentTimeMillis() - timeStamp.get(urlRemov)) > 3000 ){
+			//nova url com o ip
+			URL url = new URL("http", ip, "/"); // TODO - NEM SEMPRE E HTTP
+			 
+			//abre a conexão
+			URLConnection connection = url.openConnection();
 			
-			String contentType = lista.get(0); //content-type da página
+			//Só quero entrada de dados não quero enviar nada para o servidor
+			connection.setDoInput(true);
+			connection.setDoOutput(false);
+			
+			// TODO - Batizar o coletor e passar o nome na HTTP Request
+			//Método da requisição e e-mail para contato
+			connection.setRequestProperty("Request-Method", "GET");
+			connection.setRequestProperty("From", "gagoupuc@gmail.com");
+			
+			//Conecta com a URL
+			try{
+				connection.connect( );
+			}
+			catch (Exception e){
+				return 4;
+			}
+			
+			//------------------------------------------------------------------------- TODO: como saber se página é html? http response?
 
 			
-			if (contentType.startsWith("text/html")) { //só olhar páginas em html e em português
-				
-				//resolver robots
-				BaseRobotRules robotRules = resolveRobots(ip, urlRemov, contentType);
-				
-				if ( (robotRules != null) && (robotRules.isAllowed(urlRemov)) ) {
-					
-					//---------------------------- salvar página em um arquivo dentro de arquivos > fetchedPages
-					
-					BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-					
-					BufferedWriter out = new BufferedWriter(new FileWriter("arquivos\\fetchedPages\\" + urlRemov.hashCode() + ".html"));
+			//pegar http header
+			Map<String, List<String>> httpHeader = connection.getHeaderFields();
 
+			
+			List<String> lista = httpHeader.get("Content-Type");
+			
+			
+			if (lista != null) { //deu certo pegar o http header
+				
+				String contentType = lista.get(0); //content-type da página
+
+				// TODO - Testar text/html com espacos e caixa alta
+				if (contentType.startsWith("text/html")) { //só olhar páginas em html e em português
 					
-					String s = "";  
+					//resolver robots
+					BaseRobotRules robotRules = resolveRobots(ip, urlRemov, contentType);
 					
-					while ((s = br.readLine()) != null) {  
-						out.write(s);
-						out.write("\n");
-					}  
+					if ( (robotRules != null) && (robotRules.isAllowed(urlRemov)) ) {
+						
+						//---------------------------- salvar página em um arquivo dentro de arquivos > fetchedPages
+						
+						BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+						
+						BufferedWriter out = new BufferedWriter(new FileWriter("arquivos\\fetchedPages\\" + removeBarra(urlRemov) + ".html"));
+
+						
+						String s = "";  
+						
+						while ((s = br.readLine()) != null) {  
+							out.write(s);
+							out.write("\n");
+						}  
+						
+						br.close();
+						out.flush();
+						out.close();
+						
+						Parser parser = new Parser();
+						parser.parse(urlRemov);
+						return 0;
+					}
+					else
+					{
+						return 1;
+					}
 					
-					br.close();
-					out.flush();
-					out.close();
-					
-					Parser parser = new Parser();
-					parser.parse(urlRemov);
-					return true;
 				}
 				else
 				{
-					return false;
+					return 2;
 				}
-				
 			}
 			else
 			{
-				return false;
+				return 3;
 			}
 		}
 		else
 		{
-			return false;
+			return 5;
 		}
+	}
+
+	private String removeBarra(String urlRemov) {
+		StringBuffer sb = new StringBuffer();
+		
+		for (int i = 0; i < urlRemov.length(); i++) {
+			if((int)urlRemov.charAt(i) != 47 && (int)urlRemov.charAt(i) != 58){
+				sb.append(urlRemov.charAt(i));
+			}
+		}
+		
+		return sb.toString();
 	}
 
 	/** Formata a url recebida e tira o http://
@@ -173,7 +197,7 @@ public class Fetcher {
 			
 			try {
 				BufferedReader br = new BufferedReader(new InputStreamReader(conRobots.getInputStream()));
-				BufferedWriter out = new BufferedWriter(new FileWriter("arquivos\\fetchedPages\\temp\\" + urlRemov.hashCode() + "_robots.txt"));
+				BufferedWriter out = new BufferedWriter(new FileWriter("arquivos\\fetchedPages\\temp\\" + removeBarra(urlRemov) + "_robots.txt"));
 				
 				
 				String s = "";  
@@ -188,7 +212,7 @@ public class Fetcher {
 				out.flush();
 				out.close();
 				
-				FileInputStream fis = new FileInputStream(new File("arquivos\\fetchedPages\\temp\\" + urlRemov.hashCode() + "_robots.txt")); //abrir arquivo de robots gravado
+				FileInputStream fis = new FileInputStream(new File("arquivos\\fetchedPages\\temp\\" + removeBarra(urlRemov) + "_robots.txt")); //abrir arquivo de robots gravado
 				int qtdBytes = fis.available();
 				
 				byte[] content = new byte[qtdBytes];
