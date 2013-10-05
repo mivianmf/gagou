@@ -51,6 +51,7 @@ public class Crawler {
 	/** Construtor. Lê o cache do arquivo de cache salvo em disco.
 	 * @param numFetchers: número de fetchers a serem criados.
 	 * @throws Exception */
+	@SuppressWarnings("unchecked")
 	public Crawler(int numFetchers, int limCol) throws Exception {
 
 		this.numFetchers = numFetchers;
@@ -116,7 +117,7 @@ public class Crawler {
 
 				if (resultVerificação == 0) { // é um ip
 
-					ip = formatarIP(urlRemov);
+					ip = urlRemov;
 					
 				} else { // é um nome
 
@@ -146,10 +147,6 @@ public class Crawler {
 				System.out.println("Coletei " + pagsColetadas + " páginas");
 				Thread.sleep(200);
 
-				// --------------------------------------------------------
-				// TODO:
-				// ver tempo do servidor pra não bloquear nosso ip
-
 				// garantir que vai rodar por todos os fetchers
 				fetcherId++;
 				fetcherId %= numFetchers;
@@ -157,15 +154,6 @@ public class Crawler {
 		}
 	}
 
-	/** Formata a url em forma de ip recebida e retorna apenas o número ip.
-	 * @param urlRemov
-	 * @return String com apenas o ip. */
-	private String formatarIP(String urlRemov) {
-
-		// TODO
-
-		return null;
-	}
 
 	/** Retorna apenas o domínio da url recebida. */
 	public static String formatarURL(String url) {
@@ -278,9 +266,6 @@ public class Crawler {
 //		
 //		//Conecta com a URL
 //		connection.connect( );
-//		
-//		//------------------------------------------------------------------------- TODO: como saber se página é html? http response?
-//
 //		
 //		//pegar http header
 //		Map<String, List<String>> httpHeader = connection.getHeaderFields();

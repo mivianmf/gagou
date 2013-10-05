@@ -8,19 +8,9 @@
 package principal;
 
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.ObjectOutputStream;
-
-
-
-
-
-
-import org.apache.commons.validator.Validator;
-import org.apache.commons.validator.routines.UrlValidator;
 
 import crawler.Crawler;
 
@@ -29,6 +19,7 @@ public class Gagou {
 
 	/** Main.
 	 * @param args */
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 
 		//TODO armazenar melhor - colocar em um BD simples
