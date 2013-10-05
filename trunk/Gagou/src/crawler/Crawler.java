@@ -43,7 +43,8 @@ public class Crawler {
 	/** Lista de URLs, usada por todos os fetchers. */
 	public static List<String> urls;
 
-	public Map<String, Long> timeStamp;
+	/**Conjunto de URLs já visitadas*/
+	public Map<String, Boolean> visitado;
 	
 	
 	
@@ -70,7 +71,7 @@ public class Crawler {
 		urls = new ArrayList<String>();
 		lerSementes();
 		
-		timeStamp = new HashMap<String, Long>();
+		visitado = new HashMap<String, Boolean>();
 	}
 
 	/** Lê o arquivo de URLs semente e joga na lista urls.
@@ -136,9 +137,9 @@ public class Crawler {
 
 				System.out.println("\nFetching url: " + urlRemov);
 								
-				if(fetchers.get(fetcherId).fetch(ip, urlRemov, timeStamp) == 0){
+				if(fetchers.get(fetcherId).fetch(ip, urlRemov, visitado) == 0){
 					pagsColetadas++;
-					timeStamp.put(urlRemov, System.currentTimeMillis());
+					visitado.put(urlRemov, true);
 				}
 				
 				
