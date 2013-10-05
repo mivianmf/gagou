@@ -31,10 +31,11 @@ public class Gagou {
 	 * @param args */
 	public static void main(String[] args) {
 
-		//TODO armazenar melhor
-		//TODO meta dados
-		//TODO link relativo
+		//TODO armazenar melhor - colocar em um BD simples
+		//TODO meta dados - interpretar a tag meta dos arquivos html
 		//TODO Page Rank
+		
+		//TODO link relativo - ok
 		
 		Crawler crawler = null;
 		try {

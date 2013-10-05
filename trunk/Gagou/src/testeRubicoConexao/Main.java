@@ -1,10 +1,19 @@
 package testeRubicoConexao;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
+
+import org.jsoup.*;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import crawler.Crawler;
 
 /*TUTORIAL QUE FOI SEGUIDO
  * http://www.guj.com.br/articles/5
@@ -14,7 +23,7 @@ public class Main {
 
 	
 	public static void main (String [ ] args){
-/*	
+/*
 		try{
 			//URL a ser colhida
 			String urlString = "http://www.guj.com.br";
@@ -57,9 +66,34 @@ public class Main {
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage( ));
-		}
-		*/		  		  
-
+		}		
+	*/
+		File in = new File("arquivos\\fetchedPages\\" +"-2140274636.html");
+		Document doc;
+		try {
+			doc = Jsoup.parse(in, null);
+		 //abrir o arquivo e fazer o parse nele
 		
+		Elements links = doc.select("meta"); //pegar todos os links
+		
+		for (Element link : links) { //para cada link da lista
+			
+			String novaURL = link.attr("name");
+			
+			//validar não precisa, crawler sempre valida antes de passar url pra um fetcher
+			System.out.println(""+novaURL);
+			
+			if ( !novaURL.equals("") ) { //nova url não é vazia
+				
+//				System.out.println("Adicionando nova url na lista: " + novaURL);
+				//Crawler.urls.add(novaURL);	
+				// TODO - Transformar URL (colocar protocolo quando nao tiver)
+			}
+        }
+	
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}  
 }
