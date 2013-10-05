@@ -23,15 +23,10 @@ import crawlercommons.robots.SimpleRobotRulesParser;
 public class Fetcher {
 	
 	
-	/** Id do Fetcher. */
-	private int id;
-	
 	/** Construtor.
 	 * @param id: Id do Fetcher
 	 * @throws Exception */
-	public Fetcher(int id) throws Exception {
-		
-		this.id = id;		
+	public Fetcher(int id) throws Exception {		
 	}
 
 	public String montarCaminho(String url){
@@ -162,10 +157,11 @@ public class Fetcher {
 		return sb.toString();
 	}
 
-	/** Formata a url recebida e tira o http://
+	
+	/* Formata a url recebida e tira o http://
 	 * @param urlRemov
 	 * @return String formatada. */
-	private String formatarURL(String urlRemov) {
+	/*private String formatarURL(String urlRemov) {
 
 		int i;
 		
@@ -180,7 +176,7 @@ public class Fetcher {
 		
 		return urlRemov.substring(i);		
 	}
-
+*/
 	/** Método que lida com a parte de resolver o robots.txt 
 	 * @param ip 
 	 * @param urlRemov 
