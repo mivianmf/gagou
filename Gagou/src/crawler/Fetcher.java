@@ -26,8 +26,6 @@ public class Fetcher {
 	/** Id do Fetcher. */
 	private int id;
 	
-	
-	
 	/** Construtor.
 	 * @param id: Id do Fetcher
 	 * @throws Exception */
@@ -36,12 +34,39 @@ public class Fetcher {
 		this.id = id;		
 	}
 
-	/** Obtém o conteúdo html da página e grava em arquivo. */
-	public int fetch (String ip, String urlRemov, Map<String, Long> timeStamp) throws Exception {
+	public String montarCaminho(String url){
 		
-		if((System.currentTimeMillis() - timeStamp.get(urlRemov)) > 3000 ){
+		int comeco=0;
+		int cont = 0;
+		
+		for (int i = 0; i < url.length(); i++) {
+			
+			if((int)url.charAt(i) == 47){
+				cont++;
+			}	
+			if (cont == 3){
+				comeco = i;
+				i = url.length();
+			}
+		}
+		
+		return url.substring(comeco);
+	}
+	
+	/** Obtém o conteúdo html da página e grava em arquivo. */
+	public int fetch (String ip, String urlRemov, Map<String, Boolean> visitado) throws Exception {
+		
+		if(visitado.get(urlRemov) == null){
+			
+			//Pegar protocolo 
+			String [] aux = urlRemov.split(":");
+			String protocolo = aux[0];
+			
+			//Pegar caminho
+			String caminho = montarCaminho(urlRemov);
+			
 			//nova url com o ip
-			URL url = new URL("http", ip, "/"); // TODO - NEM SEMPRE E HTTP
+			URL url = new URL(protocolo, ip, caminho); // TODO - NEM SEMPRE E HTTP OK
 			 
 			//abre a conexão
 			URLConnection connection = url.openConnection();
@@ -63,12 +88,8 @@ public class Fetcher {
 				return 4;
 			}
 			
-			//------------------------------------------------------------------------- TODO: como saber se página é html? http response?
-
-			
 			//pegar http header
 			Map<String, List<String>> httpHeader = connection.getHeaderFields();
-
 			
 			List<String> lista = httpHeader.get("Content-Type");
 			
@@ -77,8 +98,8 @@ public class Fetcher {
 				
 				String contentType = lista.get(0); //content-type da página
 
-				// TODO - Testar text/html com espacos e caixa alta
-				if (contentType.startsWith("text/html")) { //só olhar páginas em html e em português
+				// TODO - Testar text/html caixa alta OK
+				if (contentType.toLowerCase().startsWith("text/html")) { //só olhar páginas em html e em português
 					
 					//resolver robots
 					BaseRobotRules robotRules = resolveRobots(ip, urlRemov, contentType);
