@@ -214,7 +214,7 @@ public class Crawler {
 	 * @throws Exception: caso URL esteja fora de formato */
 	private int verificarURL(String url) throws Exception {
 
-		String [] schemes = {"http", "https", "gopher", "mailto", "news", "nntp", "telnet", "wais", "file", "prospero"};
+		String [] schemes = {"ftp", "http", "https", "gopher", "mailto", "news", "nntp", "telnet", "wais", "file", "prospero"};
 		UrlValidator validar = new UrlValidator(schemes);
 		
 		if (validar.isValid(url)) { //é válida

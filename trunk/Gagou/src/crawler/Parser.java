@@ -39,8 +39,16 @@ public class Parser {
 				}
 //				System.out.println("Adicionando nova url na lista: " + novaURL);
 				
+				// TODO - Transformar URL (colocar protocolo quando nao tiver) - OK
+				if (!novaURL.startsWith("http") || !novaURL.startsWith("https")|| !novaURL.startsWith("gopher")||
+					!novaURL.startsWith("mailto") || !novaURL.startsWith("news") || !novaURL.startsWith("nntp")||
+					!novaURL.startsWith("telnet") || !novaURL.startsWith("wais") || !novaURL.startsWith("file")||
+					!novaURL.startsWith("prospero") || !novaURL.startsWith("ftp")){
+					novaURL = "http://"+novaURL;
+				}
+			
 				Crawler.urls.add(novaURL);	
-				// TODO - Transformar URL (colocar protocolo quando nao tiver)
+				
 			}
 		}
 	}
