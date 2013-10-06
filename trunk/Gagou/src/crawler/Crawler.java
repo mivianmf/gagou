@@ -20,6 +20,10 @@ import java.util.TreeMap;
 
 import org.apache.commons.validator.routines.UrlValidator;
 
+import edu.uci.ics.jung.graph.DirectedGraph;
+import edu.uci.ics.jung.graph.Graph;
+
+
 /** Coletor. <br/>
  * 	1 - Verificar se a URL é válida <br/>
  * 	2 - Resolver DNS<br/>
@@ -49,10 +53,11 @@ public class Crawler {
 	
 	
 	/** Construtor. Lê o cache do arquivo de cache salvo em disco.
+	 * @param pageRanking : grafo da web coletada.
 	 * @param numFetchers: número de fetchers a serem criados.
 	 * @throws Exception */
 	@SuppressWarnings("unchecked")
-	public Crawler(int numFetchers, int limCol) throws Exception {
+	public Crawler(int numFetchers, int limCol, Graph<String,String> pageRanking) throws Exception {
 
 		this.numFetchers = numFetchers;
 		this.limColetar = limCol;
@@ -65,7 +70,7 @@ public class Crawler {
 
 		fetchers = new ArrayList<Fetcher>();
 		for (int i = 0; i < numFetchers; i++) {
-			fetchers.add(new Fetcher(i));
+			fetchers.add(new Fetcher(i, pageRanking));
 		}
 
 		
@@ -75,6 +80,7 @@ public class Crawler {
 		visitado = new HashMap<String, Boolean>();
 	}
 
+	
 	/** Lê o arquivo de URLs semente e joga na lista urls.
 	 * @throws Exception */
 	private void lerSementes() throws Exception {
@@ -88,6 +94,7 @@ public class Crawler {
 		in.close();
 	}
 
+	
 	/** Método que faz os passos do coletor.
 	 * @throws Exception */
 	public void crawl() throws Exception {

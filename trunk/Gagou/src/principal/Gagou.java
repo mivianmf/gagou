@@ -13,6 +13,11 @@ import java.io.FileWriter;
 import java.io.ObjectOutputStream;
 
 import crawler.Crawler;
+import edu.uci.ics.jung.algorithms.scoring.PageRank;
+import edu.uci.ics.jung.graph.DirectedSparseGraph;
+import edu.uci.ics.jung.graph.Graph;
+import indexer.Indexer;
+
 
 /** Classe principal da máquina de recuperação de informação. */
 public class Gagou {
@@ -31,14 +36,33 @@ public class Gagou {
 		Crawler crawler = null;
 		try {
 			
-			crawler = new Crawler(2, 1000);
+			Graph<String, String> pageRanking = new DirectedSparseGraph<String, String>();
+			
+			
+			crawler = new Crawler(2, 300, pageRanking);
 			
 			crawler.crawl();
+			
+			
+			//page ranking do grafo da web
+			PageRank<String, String> rank = new PageRank<String, String>(pageRanking, 0.1);
+			
+			for (String v : pageRanking.getVertices()) {
+				System.out.println(v + ": " + rank.getVertexScore(v));
+			}
+			
+			
 			BufferedWriter outUrls = new BufferedWriter(new FileWriter("urlsColetadas.txt"));
 			for (String string : crawler.urls) {
 				outUrls.write(string+"\n");
 			}
 			outUrls.close();
+			
+			
+			Indexer indexer = new Indexer();
+			indexer.montarIndex();
+			indexer.salvarIndex();
+			
 			
 			System.out.println("\n\nTerminei. =D");
 			

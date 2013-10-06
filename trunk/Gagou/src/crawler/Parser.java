@@ -12,11 +12,25 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import edu.uci.ics.jung.graph.Graph;
+
 
 /** Faz o parse de uma página salva em disco. */
 public class Parser {
 	
+	/** grafo da web. */
+	Graph<String, String> pageRanking;
 	
+	
+	
+	/** Construtor.
+	 * @param pageRanking : grafo.
+	 */
+	public Parser(Graph<String, String> pageRanking) {
+		this.pageRanking = pageRanking;
+	}
+
+
 	/** Abrir um arquivo de uma página e fazer o parse dela, pegando todos os links e salvando na lista.
 	 * @throws Exception */
 	public void parse(String url) throws Exception {
@@ -39,7 +53,7 @@ public class Parser {
 				}
 //				System.out.println("Adicionando nova url na lista: " + novaURL);
 				
-				// TODO - Transformar URL (colocar protocolo quando nao tiver) - OK
+				// TODO - Transformar URL (colocar protocolo quando não tiver) - OK
 				if (!novaURL.startsWith("http") || !novaURL.startsWith("https")|| !novaURL.startsWith("gopher")||
 					!novaURL.startsWith("mailto") || !novaURL.startsWith("news") || !novaURL.startsWith("nntp")||
 					!novaURL.startsWith("telnet") || !novaURL.startsWith("wais") || !novaURL.startsWith("file")||
@@ -47,6 +61,12 @@ public class Parser {
 					novaURL = "http://"+novaURL;
 				}
 			
+				
+				//inserir nova página no grafo
+				String v1 = removeBarra(url), v2 = removeBarra(novaURL);
+				
+				pageRanking.addEdge(v1 + v2, v1, v2);
+				
 				Crawler.urls.add(novaURL);	
 				
 			}
