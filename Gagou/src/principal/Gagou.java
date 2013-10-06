@@ -39,7 +39,7 @@ public class Gagou {
 			Graph<String, String> pageRanking = new DirectedSparseGraph<String, String>();
 			
 			
-			crawler = new Crawler(2, 300, pageRanking);
+			crawler = new Crawler(2, 30, pageRanking);
 			
 			crawler.crawl();
 			

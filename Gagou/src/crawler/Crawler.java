@@ -145,7 +145,14 @@ public class Crawler {
 
 				System.out.println("\nFetching url: " + urlRemov);
 								
+//				if (urlRemov.equals("http://esportes.terra.com.br/futebol//brasileiro-serie-a")) {
+//					System.out.println();
+//				}
+				
 				if(fetchers.get(fetcherId).fetch(ip, urlRemov, visitado) == 0){
+					
+//					System.out.println("entrei no if1");
+					
 					pagsColetadas++;
 					visitado.put(urlRemov, true);
 				}

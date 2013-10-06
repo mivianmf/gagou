@@ -39,6 +39,8 @@ public class Fetcher {
 	
 	public String montarCaminho(String url){
 		
+//		System.out.println("entrei montar caminho, url = " + url);
+		
 		int comeco=0;
 		int cont = 0;
 		
@@ -53,104 +55,139 @@ public class Fetcher {
 			}
 		}
 		
-		return url.substring(comeco);
+		
+		
+		String cam = url.substring(comeco).trim();
+		
+//		System.out.println("antes tratamento barra: " + cam);
+//		
+//		
+//		if ((int)cam.charAt(cam.length()-1) != 47) {
+//			cam += "/";
+//		}
+//		
+//		
+//		System.out.println("vou retornar: " + cam);
+		
+		return cam;
 	}
 	
 	
 	/** Obtém o conteúdo html da página e grava em arquivo. */
 	public int fetch (String ip, String urlRemov, Map<String, Boolean> visitado) throws Exception {
 		
-		if(visitado.get(urlRemov) == null){
+		try {
 			
-			//Pegar protocolo 
-			String [] aux = urlRemov.split(":");
-			String protocolo = aux[0];
+//			System.out.println("estou no fetch, url = " + urlRemov);
 			
-			//Pegar caminho
-			String caminho = montarCaminho(urlRemov);
+//			System.out.println("\n\nSACI: " + urlRemov + " e " + visitado.get(urlRemov));
 			
-			//nova url com o ip
-			URL url = new URL(protocolo, ip, caminho); // TODO - NEM SEMPRE E HTTP OK
-			 
-			//abre a conexão
-			URLConnection connection = url.openConnection();
-			
-			//Só quero entrada de dados não quero enviar nada para o servidor
-			connection.setDoInput(true);
-			connection.setDoOutput(false);
-			
-			// TODO - Batizar o coletor e passar o nome na HTTP Request
-			//Método da requisição e e-mail para contato
-			connection.setRequestProperty("Request-Method", "GET");
-			connection.setRequestProperty("From", "gagoupuc@gmail.com");
-			
-			//Conecta com a URL
-			try{
-				connection.connect( );
-			}
-			catch (Exception e){
-				return 4;
-			}
-			
-			//pegar http header
-			Map<String, List<String>> httpHeader = connection.getHeaderFields();
-			
-			List<String> lista = httpHeader.get("Content-Type");
-			
-			
-			if (lista != null) { //deu certo pegar o http header
+			if(visitado.get(urlRemov) == null){
 				
-				String contentType = lista.get(0); //content-type da página
-
-				// TODO - Testar text/html caixa alta OK
-				if (contentType.toLowerCase().startsWith("text/html")) { //só olhar páginas em html e em português
+//				System.out.println("entrei if2");
+				
+				//Pegar protocolo 
+				String [] aux = urlRemov.split(":");
+				String protocolo = aux[0];
+				
+				//Pegar caminho
+				String caminho = montarCaminho(urlRemov);
+				
+//				System.out.println("caminho: " + caminho);
+				
+				//nova url com o ip
+				URL url = new URL(protocolo, ip, caminho); // TODO - NEM SEMPRE E HTTP OK
+				 
+				//abre a conexão
+				URLConnection connection = url.openConnection();
+				
+				//Só quero entrada de dados não quero enviar nada para o servidor
+				connection.setDoInput(true);
+				connection.setDoOutput(false);
+				
+				// TODO - Batizar o coletor e passar o nome na HTTP Request
+				//Método da requisição e e-mail para contato
+				connection.setRequestProperty("Request-Method", "GET");
+				connection.setRequestProperty("From", "gagoupuc@gmail.com");
+				
+				//Conecta com a URL
+				try{
+					connection.connect( );
+				}
+				catch (Exception e){
+					return 4;
+				}
+				
+//				System.out.println("consegui conectar com url");
+				
+				//pegar http header
+				Map<String, List<String>> httpHeader = connection.getHeaderFields();
+				
+				List<String> lista = httpHeader.get("Content-Type");
+				
+				
+				if (lista != null) { //deu certo pegar o http header
 					
-					//resolver robots
-					BaseRobotRules robotRules = resolveRobots(ip, urlRemov, contentType);
-					
-					if ( (robotRules != null) && (robotRules.isAllowed(urlRemov)) ) {
-						
-						//---------------------------- salvar página em um arquivo dentro de arquivos > fetchedPages
-						
-						BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-						
-						BufferedWriter out = new BufferedWriter(new FileWriter("arquivos\\fetchedPages\\" + removeBarra(urlRemov) + ".html"));
+					String contentType = lista.get(0); //content-type da página
 
+					// TODO - Testar text/html caixa alta OK
+					if (contentType.toLowerCase().startsWith("text/html")) { //só olhar páginas em html e em português
 						
-						String s = "";  
+						//resolver robots
+						BaseRobotRules robotRules = resolveRobots(ip, urlRemov, contentType);
 						
-						while ((s = br.readLine()) != null) {  
-							out.write(s);
-							out.write("\n");
-						}  
+//						System.out.println("resolve robots de " + urlRemov + " ok");
 						
-						br.close();
-						out.flush();
-						out.close();
+						if ( (robotRules != null) && (robotRules.isAllowed(urlRemov)) ) {
+							
+							//---------------------------- salvar página em um arquivo dentro de arquivos > fetchedPages
+							
+//							System.out.println("entreie if de ter robots, vou tentar abrir arquivo...");
+							
+							BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+							
+							BufferedWriter out = new BufferedWriter(new FileWriter("arquivos\\fetchedPages\\" + removeBarra(urlRemov) + ".html"));
+
+							
+							String s = "";  
+							
+							while ((s = br.readLine()) != null) {  
+								out.write(s);
+								out.write("\n");
+							}  
+							
+							br.close();
+							out.flush();
+							out.close();
+							
+							Parser parser = new Parser(pageRanking);
+							parser.parse(urlRemov);
+							return 0;
+						}
+						else
+						{
+							return 1;
+						}
 						
-						Parser parser = new Parser(pageRanking);
-						parser.parse(urlRemov);
-						return 0;
 					}
 					else
 					{
-						return 1;
+						return 2;
 					}
-					
 				}
 				else
 				{
-					return 2;
+					return 3;
 				}
 			}
 			else
 			{
-				return 3;
+				return 5;
 			}
+			
 		}
-		else
-		{
-			return 5;
+		catch (FileNotFoundException e) {
+			return 10;
 		}
 	}
 

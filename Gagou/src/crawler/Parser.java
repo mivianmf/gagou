@@ -48,26 +48,37 @@ public class Parser {
 			
 			if ( !novaURL.equals("") ) { //nova url não é vazia
 			
+//				System.out.println("antes de entrar if: " + novaURL);
+				
 				if (novaURL.contains("..")){
+					
+					System.out.println("antes de mudar saci: " + novaURL);
+					
 					novaURL = voltarPasta (url, novaURL);
+					
+					System.out.println("depois de editar: " + novaURL);
 				}
 //				System.out.println("Adicionando nova url na lista: " + novaURL);
 				
-				// TODO - Transformar URL (colocar protocolo quando não tiver) - OK
-				if (!novaURL.startsWith("http") || !novaURL.startsWith("https")|| !novaURL.startsWith("gopher")||
-					!novaURL.startsWith("mailto") || !novaURL.startsWith("news") || !novaURL.startsWith("nntp")||
-					!novaURL.startsWith("telnet") || !novaURL.startsWith("wais") || !novaURL.startsWith("file")||
-					!novaURL.startsWith("prospero") || !novaURL.startsWith("ftp")){
+				// TODO Transformar URL (colocar protocolo quando não tiver) - OK
+				if (!novaURL.startsWith("http") && !novaURL.startsWith("https")&& !novaURL.startsWith("gopher")&&
+					!novaURL.startsWith("mailto") && !novaURL.startsWith("news") && !novaURL.startsWith("nntp")&&
+					!novaURL.startsWith("telnet") && !novaURL.startsWith("wais") && !novaURL.startsWith("file")&&
+					!novaURL.startsWith("prospero") && !novaURL.startsWith("ftp")){
 					novaURL = "http://"+novaURL;
 				}
 			
+				Crawler.urls.add(novaURL);
+				
+//				System.out.println("adicionei nova url memso '-'");
+//				for (String s : Crawler.urls) {
+//					System.out.println(s);
+//				}
 				
 				//inserir nova página no grafo
 				String v1 = removeBarra(url), v2 = removeBarra(novaURL);
 				
 				pageRanking.addEdge(v1 + v2, v1, v2);
-				
-				Crawler.urls.add(novaURL);	
 				
 			}
 		}

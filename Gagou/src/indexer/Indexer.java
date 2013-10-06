@@ -47,7 +47,7 @@ public class Indexer {
 		
 		
 		File diretorio = new File(".//arquivos//arquivosSimples");
-		diretorio.mkdirs();
+//		diretorio.mkdirs();
 		File[] arquivos = diretorio.listFiles();
 				
 		
