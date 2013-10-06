@@ -17,18 +17,26 @@ import java.util.Map;
 import crawlercommons.robots.BaseRobotRules;
 import crawlercommons.robots.BaseRobotsParser;
 import crawlercommons.robots.SimpleRobotRulesParser;
+import edu.uci.ics.jung.graph.Graph;
 
 
 /** Pega URLs e salva as páginas html correspondentes em arquivo. */
 public class Fetcher {
 	
 	
+	/** grafo da web. */
+	Graph<String, String> pageRanking;
+	
+	
 	/** Construtor.
+	 * @param pageRanking : grafo.
 	 * @param id: Id do Fetcher
 	 * @throws Exception */
-	public Fetcher(int id) throws Exception {		
+	public Fetcher(int id, Graph<String, String> pageRanking) throws Exception {
+		this.pageRanking = pageRanking;
 	}
 
+	
 	public String montarCaminho(String url){
 		
 		int comeco=0;
@@ -47,6 +55,7 @@ public class Fetcher {
 		
 		return url.substring(comeco);
 	}
+	
 	
 	/** Obtém o conteúdo html da página e grava em arquivo. */
 	public int fetch (String ip, String urlRemov, Map<String, Boolean> visitado) throws Exception {
@@ -119,7 +128,7 @@ public class Fetcher {
 						out.flush();
 						out.close();
 						
-						Parser parser = new Parser();
+						Parser parser = new Parser(pageRanking);
 						parser.parse(urlRemov);
 						return 0;
 					}
@@ -145,6 +154,7 @@ public class Fetcher {
 		}
 	}
 
+	
 	private String removeBarra(String urlRemov) {
 		StringBuffer sb = new StringBuffer();
 		
