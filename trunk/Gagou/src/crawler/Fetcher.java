@@ -11,29 +11,27 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import principal.LigacoesURL;
 
 import crawlercommons.robots.BaseRobotRules;
 import crawlercommons.robots.BaseRobotsParser;
 import crawlercommons.robots.SimpleRobotRulesParser;
-import edu.uci.ics.jung.graph.Graph;
 
 
 /** Pega URLs e salva as páginas html correspondentes em arquivo. */
 public class Fetcher {
 	
 	
-	/** grafo da web. */
-	Graph<String, String> pageRanking;
-	
-	
 	/** Construtor.
 	 * @param pageRanking : grafo.
 	 * @param id: Id do Fetcher
 	 * @throws Exception */
-	public Fetcher(int id, Graph<String, String> pageRanking) throws Exception {
-		this.pageRanking = pageRanking;
+	public Fetcher(int id) throws Exception {
+		
 	}
 
 	
@@ -73,10 +71,13 @@ public class Fetcher {
 	}
 	
 	
-	/** Obtém o conteúdo html da página e grava em arquivo. */
-	public int fetch (String ip, String urlRemov, Map<String, Boolean> visitado) throws Exception {
+	/** Obtém o conteúdo html da página e grava em arquivo. 
+	 * @param listaURLs */
+	public int fetch (String ip, String urlRemov, Map<String, Boolean> visitado, ArrayList<LigacoesURL> listaURLs) throws Exception {
 		
 		try {
+			
+			LigacoesURL lu = new LigacoesURL(urlRemov);
 			
 //			System.out.println("estou no fetch, url = " + urlRemov);
 			
@@ -160,8 +161,11 @@ public class Fetcher {
 							out.flush();
 							out.close();
 							
-							Parser parser = new Parser(pageRanking);
-							parser.parse(urlRemov);
+							Parser parser = new Parser();
+							parser.parse(urlRemov, lu);
+							
+							listaURLs.add(lu); //adiciona essa url e suas ligações na lista
+							
 							return 0;
 						}
 						else

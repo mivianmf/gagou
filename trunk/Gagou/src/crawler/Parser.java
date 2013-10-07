@@ -12,28 +12,26 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import edu.uci.ics.jung.graph.Graph;
+import principal.LigacoesURL;
 
 
 /** Faz o parse de uma página salva em disco. */
 public class Parser {
-	
-	/** grafo da web. */
-	Graph<String, String> pageRanking;
 	
 	
 	
 	/** Construtor.
 	 * @param pageRanking : grafo.
 	 */
-	public Parser(Graph<String, String> pageRanking) {
-		this.pageRanking = pageRanking;
+	public Parser() {
+		
 	}
 
 
 	/** Abrir um arquivo de uma página e fazer o parse dela, pegando todos os links e salvando na lista.
+	 * @param lu 
 	 * @throws Exception */
-	public void parse(String url) throws Exception {
+	public void parse(String url, LigacoesURL lu) throws Exception {
 
 		File in = new File("arquivos\\fetchedPages\\" + removeBarra(url) + ".html");
 		Document doc = Jsoup.parse(in, null); //abrir o arquivo e fazer o parse nele
@@ -52,11 +50,11 @@ public class Parser {
 				
 				if (novaURL.contains("..")){
 					
-					System.out.println("antes de mudar saci: " + novaURL);
+//					System.out.println("antes de mudar saci: " + novaURL);
 					
 					novaURL = voltarPasta (url, novaURL);
 					
-					System.out.println("depois de editar: " + novaURL);
+//					System.out.println("depois de editar: " + novaURL);
 				}
 //				System.out.println("Adicionando nova url na lista: " + novaURL);
 				
@@ -70,15 +68,18 @@ public class Parser {
 			
 				Crawler.urls.add(novaURL);
 				
+				lu.aponta.add(novaURL);
+				
+				
 //				System.out.println("adicionei nova url memso '-'");
 //				for (String s : Crawler.urls) {
 //					System.out.println(s);
 //				}
 				
 				//inserir nova página no grafo
-				String v1 = removeBarra(url), v2 = removeBarra(novaURL);
-				
-				pageRanking.addEdge(v1 + v2, v1, v2);
+//				String v1 = removeBarra(url), v2 = removeBarra(novaURL);
+//				
+//				pageRanking.addEdge(v1 + v2, v1, v2);
 				
 			}
 		}
