@@ -34,5 +34,8 @@
 	<classpathentry kind="lib" path="C:/Users/Mari/EclipseWorkspace/Gagou/libs/jung2-2_0_1/vecmath-1.3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Mari/EclipseWorkspace/Gagou/libs/jung2-2_0_1/wstx-asl-3.2.6.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Mari/EclipseWorkspace/Gagou/libs/slf4j-nop-1.7.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mari/EclipseWorkspace/Gagou/libs/pagerank/spark-core_2.9.2-0.6.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mari/EclipseWorkspace/Gagou/libs/pagerank/spark-core_2.9.3-0.7.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mari/EclipseWorkspace/Gagou/libs/pagerank/scala-library-2.5.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

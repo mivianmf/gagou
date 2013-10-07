@@ -20,8 +20,7 @@ import java.util.TreeMap;
 
 import org.apache.commons.validator.routines.UrlValidator;
 
-import edu.uci.ics.jung.graph.DirectedGraph;
-import edu.uci.ics.jung.graph.Graph;
+import principal.LigacoesURL;
 
 
 /** Coletor. <br/>
@@ -57,7 +56,7 @@ public class Crawler {
 	 * @param numFetchers: número de fetchers a serem criados.
 	 * @throws Exception */
 	@SuppressWarnings("unchecked")
-	public Crawler(int numFetchers, int limCol, Graph<String,String> pageRanking) throws Exception {
+	public Crawler(int numFetchers, int limCol) throws Exception {
 
 		this.numFetchers = numFetchers;
 		this.limColetar = limCol;
@@ -70,7 +69,7 @@ public class Crawler {
 
 		fetchers = new ArrayList<Fetcher>();
 		for (int i = 0; i < numFetchers; i++) {
-			fetchers.add(new Fetcher(i, pageRanking));
+			fetchers.add(new Fetcher(i));
 		}
 
 		
@@ -96,8 +95,9 @@ public class Crawler {
 
 	
 	/** Método que faz os passos do coletor.
+	 * @param listaURLs 
 	 * @throws Exception */
-	public void crawl() throws Exception {
+	public void crawl(ArrayList<LigacoesURL> listaURLs) throws Exception {
 
 		int fetcherId = 0;
 		int i = 0; //andar pela lista de urls
@@ -149,7 +149,7 @@ public class Crawler {
 //					System.out.println();
 //				}
 				
-				if(fetchers.get(fetcherId).fetch(ip, urlRemov, visitado) == 0){
+				if(fetchers.get(fetcherId).fetch(ip, urlRemov, visitado, listaURLs) == 0){
 					
 //					System.out.println("entrei no if1");
 					
