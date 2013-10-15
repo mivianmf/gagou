@@ -6,7 +6,7 @@ import java.util.List;
 
 public class InformacoesTermo {
 	
-	/** Nome do documento. */
+	/** MD5 do nome do documento. */
 	String documento;
 	
 	/** Frequência do termo no documento. */

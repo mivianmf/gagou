@@ -5,14 +5,39 @@
   */
 
 
+
+//TODO armazenar melhor - colocar em um BD não relacional
+
+//TODO meta dados - interpretar a tag meta dos arquivos html
+
+//Page Rank 
+
+//link relativo
+
+//Stemming em portugues
+
+//Verificar pontuação entre números (10.050.304 e 10,34)
+
+//Retirar a URL InformaçõesTermo e fazer um MD5 disso
+
+//TODO Compactar o índice como texto e não como obj
+
+//O que é a tolerância utilizada no pagerank? VIDE: http://jung.sourceforge.net/doc/api/edu/uci/ics/jung/algorithms/scoring/AbstractIterativeScorer.html#tolerance
+//Minimum change from one step to the next; if all changes are <= tolerance, no further updates will occur. Defaults to 0.001.
+
+
+
+
 package principal;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -30,24 +55,6 @@ public class Gagou {
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 
-		//TODO Banco de Dados Não relacional
-		//TODO Stemming em portugues
-		//TODO Verificar pontuação entre números (10.050.304 e 10,34)
-		//TODO Retirar a URL InformaçõesTermo e fazer um MD5 disso
-		//TODO Compactar o índice como texto e não como objeto
-		//TODO O que é a tolerância utilizada no pagerank?
-		
-		
-		
-		
-		//TODO armazenar melhor - colocar em um BD simples
-		//TODO meta dados - interpretar a tag meta dos arquivos html
-		//TODO Page Rank
-		
-		//TODO link relativo - ok
-		
-		
-		
 		
 		/** Lista com todas as URLs e suas ligações. */
 		ArrayList<LigacoesURL> listaURLs = new ArrayList<LigacoesURL>();
@@ -57,7 +64,7 @@ public class Gagou {
 		try {
 			
 			
-			crawler = new Crawler(2, 15);
+			crawler = new Crawler(2, 5);
 			
 			crawler.crawl(listaURLs);
 
@@ -86,6 +93,7 @@ public class Gagou {
 			
 			Indexer indexer = new Indexer();
 			indexer.montarIndex();
+//			indexer.mostrarTela();
 			indexer.salvarIndex();
 			
 			
@@ -121,9 +129,9 @@ public class Gagou {
 
 		}
 
-		System.out.println("ACABOU");
 	}
 
+	
 	/** montar arquivo para pagerank 
 	 * @param listaURLs 
 	 * @throws Exception */
@@ -151,4 +159,29 @@ public class Gagou {
 		
 	}
 
+	
+	/** Converte URL da página pro seu MD5.
+	  * @param name : string a ser convertida
+	  * @return conversão da string pra md5
+	 * @throws Exception */
+	public static String converteMD5(String name) throws Exception { 
+		
+		MessageDigest md;
+		String md5;
+		
+		try {
+			
+			md = MessageDigest.getInstance("MD5");
+		  
+			BigInteger hash = new BigInteger(1, md.digest(name.getBytes()));  
+			
+			md5 = hash.toString(16);
+		} 
+		catch (NoSuchAlgorithmException e) {
+			throw new Exception("Deu erro no converte MD5");
+		}
+		
+		return md5;
+	}
 }
+
