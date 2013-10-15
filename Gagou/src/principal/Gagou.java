@@ -30,6 +30,16 @@ public class Gagou {
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 
+		//TODO Banco de Dados Não relacional
+		//TODO Stemming em portugues
+		//TODO Verificar pontuação entre números (10.050.304 e 10,34)
+		//TODO Retirar a URL InformaçõesTermo e fazer um MD5 disso
+		//TODO Compactar o índice como texto e não como objeto
+		//TODO O que é a tolerância utilizada no pagerank?
+		
+		
+		
+		
 		//TODO armazenar melhor - colocar em um BD simples
 		//TODO meta dados - interpretar a tag meta dos arquivos html
 		//TODO Page Rank
@@ -111,6 +121,7 @@ public class Gagou {
 
 		}
 
+		System.out.println("ACABOU");
 	}
 
 	/** montar arquivo para pagerank 
